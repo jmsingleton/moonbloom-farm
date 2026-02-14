@@ -11,24 +11,28 @@ const categories = [
     description: 'Seasonal blooms grown with love, from dahlias to sunflowers.',
     color: 'var(--color-forest-light)',
     colorAlpha: 'rgba(58, 112, 64, 0.12)',
+    image: '/images/placeholder-flowers.svg',
   },
   {
     name: 'Seasonal Produce',
     description: 'Fresh-picked vegetables and herbs straight from our fields.',
     color: 'var(--color-gold)',
     colorAlpha: 'rgba(201, 169, 110, 0.18)',
+    image: '/images/placeholder-produce.svg',
   },
   {
     name: 'Farm Fresh Eggs',
     description: 'Pasture-raised eggs from our happy, free-roaming hens.',
     color: 'var(--color-terracotta)',
     colorAlpha: 'rgba(196, 120, 91, 0.15)',
+    image: '/images/placeholder-eggs.svg',
   },
   {
     name: 'Curated Gifts',
     description: 'Handpicked goods and gift boxes inspired by the farm.',
     color: 'var(--color-charcoal-light)',
     colorAlpha: 'rgba(92, 92, 88, 0.10)',
+    image: '/images/placeholder-gifts.svg',
   },
 ];
 ---
@@ -40,14 +44,8 @@ const categories = [
     <div class="grow-grid">
       {categories.map((cat) => (
         <div class="grow-card">
-          <div
-            class="grow-card-image"
-            style={`background-color: ${cat.colorAlpha};`}
-            aria-hidden="true"
-          >
-            <span class="grow-card-image-text" style={`color: ${cat.color};`}>
-              {cat.name}
-            </span>
+          <div class="grow-card-image">
+            <img src={cat.image} alt={cat.name} class="grow-card-img" loading="lazy" />
           </div>
           <h3 class="grow-card-name">{cat.name}</h3>
           <p class="grow-card-desc">{cat.description}</p>
@@ -96,19 +94,16 @@ const categories = [
     width: 100%;
     aspect-ratio: 3 / 2;
     border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     margin-bottom: var(--space-sm);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   }
 
-  .grow-card-image-text {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.6;
+  .grow-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .grow-card-name {

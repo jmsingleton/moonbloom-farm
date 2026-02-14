@@ -32,7 +32,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="story-block">
         <div class="story-photo-wrapper">
           <div class="story-photo-placeholder">
-            <span class="story-photo-text">Photo</span>
+            <img src="/images/about-farm.svg" alt="Moonbloom Farms fields" class="story-photo-img" loading="lazy" />
           </div>
         </div>
         <div class="story-text">
@@ -50,7 +50,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="story-block story-block--reversed">
         <div class="story-photo-wrapper">
           <div class="story-photo-placeholder">
-            <span class="story-photo-text">Photo</span>
+            <img src="/images/placeholder-flowers.svg" alt="Growing philosophy at Moonbloom Farms" class="story-photo-img" loading="lazy" />
           </div>
         </div>
         <div class="story-text">
@@ -151,7 +151,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="farmer-block">
         <div class="farmer-photo-wrapper">
           <div class="farmer-photo-placeholder">
-            <span class="farmer-photo-text">Photo</span>
+            <img src="/images/about-farmer.svg" alt="Sarah Mitchell, farmer at Moonbloom Farms" class="farmer-photo-img" loading="lazy" />
           </div>
         </div>
         <div class="farmer-text">
@@ -290,21 +290,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     width: 100%;
     max-width: 440px;
     aspect-ratio: 4 / 5;
-    background-color: var(--color-cream-dark);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
   }
 
-  .story-photo-text {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--color-charcoal-light);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.5;
+  .story-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .story-heading {
@@ -397,21 +392,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     width: 100%;
     max-width: 400px;
     aspect-ratio: 1 / 1;
-    background-color: var(--color-cream-dark);
     border-radius: 50%;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
   }
 
-  .farmer-photo-text {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    color: var(--color-charcoal-light);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.5;
+  .farmer-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .farmer-heading {
