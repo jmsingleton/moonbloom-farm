@@ -1,0 +1,194 @@
+---
+/**
+ * AboutPreview — "Our Story" preview section for the homepage.
+ * Two-column layout with photo placeholder and introductory text.
+ * Includes a botanical leaf divider at the top.
+ */
+---
+
+<section class="about-preview" aria-label="About Moonbloom Farms">
+  <!-- Botanical divider -->
+  <div class="botanical-divider" aria-hidden="true">
+    <svg
+      width="64"
+      height="32"
+      viewBox="0 0 64 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z"
+        fill="currentColor"
+        opacity="0.7"
+      />
+      <path
+        d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z"
+        fill="currentColor"
+        opacity="0.7"
+      />
+      <path
+        d="M32 30C32 30 32 16 32 2"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        opacity="0.5"
+      />
+    </svg>
+  </div>
+
+  <div class="about-preview-inner container">
+    <div class="about-preview-grid">
+      <!-- Photo placeholder -->
+      <div class="about-photo-wrapper">
+        <div class="about-photo-placeholder">
+          <span class="about-photo-text">Photo</span>
+        </div>
+      </div>
+
+      <!-- Text content -->
+      <div class="about-text">
+        <h2 class="about-heading">Our Story</h2>
+        <p class="about-description">
+          Nestled in the heart of Sonoma Valley, Moonbloom Farms is a labor of love.
+          We grow seasonal flowers and food with care, raise happy chickens, and curate
+          beautiful things for your home. What began as a small garden has blossomed into
+          a place where community and nature meet.
+        </p>
+        <a href="/about" class="about-link">
+          Learn More <span class="about-link-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ─── Section ─── */
+  .about-preview {
+    padding: var(--space-2xl) 0;
+  }
+
+  /* ─── Botanical Divider ─── */
+  .botanical-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+    color: var(--color-gold);
+  }
+
+  /* ─── Grid Layout ─── */
+  .about-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  /* ─── Photo Placeholder ─── */
+  .about-photo-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-photo-placeholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4 / 5;
+    background-color: var(--color-cream-dark);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-photo-text {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-charcoal-light);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+  }
+
+  /* ─── Text Content ─── */
+  .about-text {
+    max-width: 520px;
+  }
+
+  .about-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+    font-weight: 700;
+    color: var(--color-charcoal);
+    margin: 0 0 var(--space-md);
+  }
+
+  .about-description {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin: 0 0 var(--space-lg);
+  }
+
+  /* ─── Learn More Link ─── */
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-forest);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .about-link:hover {
+    color: var(--color-terracotta);
+  }
+
+  .about-link-arrow {
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+
+  .about-link:hover .about-link-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .about-preview {
+      padding: var(--space-xl) 0;
+    }
+
+    .about-preview-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      text-align: center;
+    }
+
+    .about-photo-placeholder {
+      max-width: 320px;
+    }
+
+    .about-text {
+      max-width: 100%;
+    }
+
+    .about-link {
+      justify-content: center;
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .about-link,
+    .about-link-arrow {
+      transition: none;
+    }
+  }
+</style>
