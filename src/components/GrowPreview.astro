@@ -1,0 +1,187 @@
+---
+/**
+ * GrowPreview — "What We Grow & Sell" preview section for the homepage.
+ * Displays a grid of 4 product category cards with image placeholders
+ * and a "See Everything" link to the full page.
+ */
+
+const categories = [
+  {
+    name: 'Flowers',
+    description: 'Seasonal blooms grown with love, from dahlias to sunflowers.',
+    color: 'var(--color-forest-light)',
+    colorAlpha: 'rgba(58, 112, 64, 0.12)',
+  },
+  {
+    name: 'Seasonal Produce',
+    description: 'Fresh-picked vegetables and herbs straight from our fields.',
+    color: 'var(--color-gold)',
+    colorAlpha: 'rgba(201, 169, 110, 0.18)',
+  },
+  {
+    name: 'Farm Fresh Eggs',
+    description: 'Pasture-raised eggs from our happy, free-roaming hens.',
+    color: 'var(--color-terracotta)',
+    colorAlpha: 'rgba(196, 120, 91, 0.15)',
+  },
+  {
+    name: 'Curated Gifts',
+    description: 'Handpicked goods and gift boxes inspired by the farm.',
+    color: 'var(--color-charcoal-light)',
+    colorAlpha: 'rgba(92, 92, 88, 0.10)',
+  },
+];
+---
+
+<section class="grow-preview" aria-label="What We Grow and Sell">
+  <div class="grow-preview-inner container">
+    <h2 class="grow-heading">What We Grow &amp; Sell</h2>
+
+    <div class="grow-grid">
+      {categories.map((cat) => (
+        <div class="grow-card">
+          <div
+            class="grow-card-image"
+            style={`background-color: ${cat.colorAlpha};`}
+            aria-hidden="true"
+          >
+            <span class="grow-card-image-text" style={`color: ${cat.color};`}>
+              {cat.name}
+            </span>
+          </div>
+          <h3 class="grow-card-name">{cat.name}</h3>
+          <p class="grow-card-desc">{cat.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="grow-cta">
+      <a href="/what-we-grow" class="grow-link">
+        See Everything <span class="grow-link-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ─── Section ─── */
+  .grow-preview {
+    background-color: var(--color-cream-dark);
+    padding: var(--space-2xl) 0;
+  }
+
+  /* ─── Heading ─── */
+  .grow-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+    font-weight: 700;
+    color: var(--color-charcoal);
+    text-align: center;
+    margin: 0 0 var(--space-xl);
+  }
+
+  /* ─── Card Grid ─── */
+  .grow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* ─── Card ─── */
+  .grow-card {
+    text-align: center;
+  }
+
+  .grow-card-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .grow-card-image-text {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+  }
+
+  .grow-card-name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-charcoal);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .grow-card-desc {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-charcoal-light);
+    margin: 0;
+  }
+
+  /* ─── CTA Link ─── */
+  .grow-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+  }
+
+  .grow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-forest);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .grow-link:hover {
+    color: var(--color-terracotta);
+  }
+
+  .grow-link-arrow {
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+
+  .grow-link:hover .grow-link-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ─── Responsive: Tablet ─── */
+  @media (max-width: 1024px) {
+    .grow-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ─── Responsive: Mobile ─── */
+  @media (max-width: 600px) {
+    .grow-preview {
+      padding: var(--space-xl) 0;
+    }
+
+    .grow-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .grow-link,
+    .grow-link-arrow {
+      transition: none;
+    }
+  }
+</style>
