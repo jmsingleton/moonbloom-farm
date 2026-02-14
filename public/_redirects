@@ -1,0 +1,2 @@
+# Redirect www to non-www (uncomment and update domain when ready)
+# https://www.moonbloomfarms.com/* https://moonbloomfarms.com/:splat 301
