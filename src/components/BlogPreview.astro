@@ -1,31 +1,17 @@
 ---
 /**
  * BlogPreview — "From the Field" blog preview section for the homepage.
- * Displays a grid of 3 placeholder blog post cards with hover lift effects
+ * Displays a grid of the 3 latest blog post cards with hover lift effects
  * and an "All Posts" link to the blog page.
- * Uses static placeholder data; Task 14 will wire to Astro content collections.
+ * Powered by Astro content collections.
  */
 
-const posts = [
-  {
-    date: 'January 15, 2026',
-    title: 'Welcome to Moonbloom',
-    excerpt:
-      'We are so excited to share our little corner of Sonoma Valley with you. Follow along as we grow flowers, raise chickens, and build something beautiful.',
-  },
-  {
-    date: 'February 1, 2026',
-    title: 'Spring Flowers Are Coming',
-    excerpt:
-      'The first signs of spring are peeking through the soil. Here is a look at what we are planting this season and what to expect at the farm stand.',
-  },
-  {
-    date: 'February 10, 2026',
-    title: 'Farm Stand Hours',
-    excerpt:
-      'Our farm stand is open for the season! Stop by Friday through Sunday for fresh blooms, seasonal produce, farm eggs, and curated gifts.',
-  },
-];
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const posts = allPosts.slice(0, 3);
 ---
 
 <section class="blog-preview" aria-label="From the Field — Blog">
@@ -33,21 +19,30 @@ const posts = [
     <h2 class="blog-heading">From the Field</h2>
 
     <div class="blog-grid">
-      {posts.map((post) => (
-        <article class="blog-card">
-          <div class="blog-card-image" aria-hidden="true">
-            <span class="blog-card-image-text">Photo</span>
-          </div>
-          <div class="blog-card-body">
-            <time class="blog-card-date">{post.date}</time>
-            <h3 class="blog-card-title">{post.title}</h3>
-            <p class="blog-card-excerpt">{post.excerpt}</p>
-            <a href="/blog" class="blog-card-link">
-              Read More <span class="blog-card-link-arrow" aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        </article>
-      ))}
+      {posts.map((post) => {
+        const formattedDate = post.data.date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
+        return (
+          <article class="blog-card">
+            <div class="blog-card-image" aria-hidden="true">
+              <span class="blog-card-image-text">Photo</span>
+            </div>
+            <div class="blog-card-body">
+              <time class="blog-card-date" datetime={post.data.date.toISOString()}>
+                {formattedDate}
+              </time>
+              <h3 class="blog-card-title">{post.data.title}</h3>
+              <p class="blog-card-excerpt">{post.data.description}</p>
+              <a href={`/blog/${post.id}`} class="blog-card-link">
+                Read More <span class="blog-card-link-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+        );
+      })}
     </div>
 
     <div class="blog-cta">
