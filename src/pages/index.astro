@@ -1,20 +1,10 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Moonbloom Farms</title>
-	</head>
-	<body>
-		<div class="container">
-			<h1>Moonbloom Farms</h1>
-			<p>Cultivating beauty, rooted in nature.</p>
-		</div>
-	</body>
-</html>
+<BaseLayout title="Moonbloom Farms" description="Moonbloom Farms — cultivating beauty, rooted in nature. Explore our seasonal flower offerings, farm story, and floral workshops.">
+  <div class="container">
+    <h1>Moonbloom Farms</h1>
+    <p>Cultivating beauty, rooted in nature.</p>
+  </div>
+</BaseLayout>
