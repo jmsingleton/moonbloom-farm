@@ -1,0 +1,191 @@
+---
+/**
+ * FarmStandInfo — "Visit the Stand" section for the homepage.
+ * Deep forest green background with cream text as a visual break.
+ * Two-column layout: address & hours on left, Google Maps embed on right.
+ */
+
+const hours = [
+  { days: 'Friday - Sunday', time: '9:00 AM - 4:00 PM' },
+  { days: 'Monday - Thursday', time: 'Closed' },
+];
+---
+
+<section class="farm-stand" aria-label="Visit the Farm Stand">
+  <div class="farm-stand-inner container">
+    <div class="farm-stand-grid">
+      <!-- Left: Info -->
+      <div class="farm-stand-info">
+        <h2 class="farm-stand-heading">Visit the Stand</h2>
+
+        <address class="farm-stand-address">
+          14520 Arnold Drive<br />
+          Glen Ellen, CA 95442
+        </address>
+
+        <div class="farm-stand-hours">
+          <h3 class="farm-stand-hours-heading">Seasonal Hours</h3>
+          <dl class="farm-stand-hours-list">
+            {hours.map((slot) => (
+              <div class="farm-stand-hours-row">
+                <dt class="farm-stand-hours-days">{slot.days}</dt>
+                <dd class="farm-stand-hours-time">{slot.time}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <p class="farm-stand-note">
+          Our farm stand is stocked with seasonal flowers, fresh produce, eggs,
+          and curated gifts.
+        </p>
+      </div>
+
+      <!-- Right: Map -->
+      <div class="farm-stand-map">
+        <iframe
+          title="Moonbloom Farms location in Glen Ellen, CA"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12516.0!2d-122.526!3d38.371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085ab8e0d6a1e23%3A0x8a6f20006e53e2a!2sGlen%20Ellen%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000"
+          width="600"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ─── Section ─── */
+  .farm-stand {
+    background-color: var(--color-forest);
+    padding: var(--space-2xl) 0;
+  }
+
+  /* ─── Grid Layout ─── */
+  .farm-stand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  /* ─── Left: Info ─── */
+  .farm-stand-info {
+    color: var(--color-cream);
+  }
+
+  .farm-stand-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .farm-stand-address {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    font-style: normal;
+    line-height: 1.8;
+    color: var(--color-cream-dark);
+    margin: 0 0 var(--space-lg);
+  }
+
+  /* ─── Hours ─── */
+  .farm-stand-hours {
+    margin: 0 0 var(--space-lg);
+  }
+
+  .farm-stand-hours-heading {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .farm-stand-hours-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .farm-stand-hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid rgba(250, 247, 242, 0.12);
+    max-width: 360px;
+  }
+
+  .farm-stand-hours-days {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-cream);
+  }
+
+  .farm-stand-hours-time {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-gold-light);
+    margin: 0;
+  }
+
+  /* ─── Note ─── */
+  .farm-stand-note {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.75);
+    margin: 0;
+    max-width: 420px;
+  }
+
+  /* ─── Right: Map ─── */
+  .farm-stand-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .farm-stand-map iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 380px;
+    border-radius: var(--border-radius);
+    border: 2px solid rgba(250, 247, 242, 0.15);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ─── Responsive: Tablet / Mobile ─── */
+  @media (max-width: 768px) {
+    .farm-stand {
+      padding: var(--space-xl) 0;
+    }
+
+    .farm-stand-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      text-align: center;
+    }
+
+    .farm-stand-hours-row {
+      max-width: 100%;
+      justify-content: center;
+      gap: var(--space-md);
+    }
+
+    .farm-stand-note {
+      max-width: 100%;
+    }
+
+    .farm-stand-map iframe {
+      max-width: 100%;
+      height: 300px;
+    }
+  }
+</style>
