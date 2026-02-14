@@ -1,0 +1,347 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <!-- Botanical divider above footer -->
+  <div class="footer-divider" aria-hidden="true">
+    <svg width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12 H80 M120 12 H200" stroke="currentColor" stroke-width="1" />
+      <path d="M90 2 C92 6, 96 10, 100 12 C104 10, 108 6, 110 2" stroke="currentColor" stroke-width="1" fill="none" />
+      <path d="M90 22 C92 18, 96 14, 100 12 C104 14, 108 18, 110 22" stroke="currentColor" stroke-width="1" fill="none" />
+      <path d="M86 12 C90 10, 96 10, 100 12 C96 14, 90 14, 86 12Z" stroke="currentColor" stroke-width="1" fill="none" />
+      <path d="M114 12 C110 10, 104 10, 100 12 C104 14, 110 14, 114 12Z" stroke="currentColor" stroke-width="1" fill="none" />
+      <circle cx="100" cy="12" r="2" fill="currentColor" />
+    </svg>
+  </div>
+
+  <div class="footer-inner">
+    <div class="footer-columns">
+      <!-- Column 1: Farm Info -->
+      <div class="footer-col">
+        <h3 class="footer-farm-name">Moonbloom Farms</h3>
+        <p class="footer-tagline">Cultivating beauty, rooted in nature.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="social-link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Visit the Stand -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Visit the Stand</h4>
+        <address class="footer-address">
+          <p>14520 Arnold Drive</p>
+          <p>Glen Ellen, CA 95442</p>
+        </address>
+        <p class="footer-hours">Friday &ndash; Sunday, 9am &ndash; 2pm</p>
+        <p class="footer-hours-note">Seasonal hours &middot; April through October</p>
+        <a href="/contact" class="footer-link">Get in Touch &rarr;</a>
+      </div>
+
+      <!-- Column 3: Stay Connected -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Stay Connected</h4>
+        <p class="footer-newsletter-text">Join our newsletter for seasonal updates, bloom schedules, and farm stand hours.</p>
+        <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form">
+          <input type="hidden" name="form-name" value="newsletter" />
+          <p class="honeypot" aria-hidden="true">
+            <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+          <div class="form-fields">
+            <input
+              type="text"
+              name="name"
+              placeholder="First name"
+              required
+              aria-label="First name"
+              class="form-input"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              required
+              aria-label="Email address"
+              class="form-input"
+            />
+            <button type="submit" class="form-button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; {currentYear} Moonbloom Farms. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Botanical divider */
+  .footer-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg) 0 0;
+    color: var(--color-gold);
+    opacity: 0.7;
+    background-color: var(--color-cream);
+  }
+
+  /* Footer base */
+  .site-footer {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md) var(--space-lg);
+  }
+
+  /* Columns grid */
+  .footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: var(--space-xl);
+  }
+
+  /* Column styles */
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Farm name */
+  .footer-farm-name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-xs);
+    line-height: 1.3;
+  }
+
+  /* Tagline */
+  .footer-tagline {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-cream-dark);
+    font-style: italic;
+    margin: 0 0 var(--space-md);
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  /* Social */
+  .footer-social {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(250, 247, 242, 0.25);
+    color: var(--color-cream);
+    transition: color var(--transition), border-color var(--transition), background-color var(--transition);
+  }
+
+  .social-link:hover {
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+    background-color: rgba(201, 169, 110, 0.1);
+  }
+
+  /* Column headings */
+  .footer-heading {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-sm);
+    letter-spacing: 0.02em;
+  }
+
+  /* Address */
+  .footer-address {
+    font-style: normal;
+    line-height: 1.7;
+    margin: 0 0 var(--space-xs);
+  }
+
+  .footer-address p {
+    margin: 0;
+    color: var(--color-cream-dark);
+    opacity: 0.85;
+  }
+
+  /* Hours */
+  .footer-hours {
+    margin: 0;
+    color: var(--color-cream);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+  }
+
+  .footer-hours-note {
+    margin: 2px 0 var(--space-sm);
+    color: var(--color-cream-dark);
+    font-size: var(--font-size-xs);
+    opacity: 0.7;
+  }
+
+  /* Footer link */
+  .footer-link {
+    color: var(--color-gold);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color var(--transition);
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    color: var(--color-gold-light);
+  }
+
+  /* Newsletter text */
+  .footer-newsletter-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-cream-dark);
+    margin: 0 0 var(--space-sm);
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  /* Honeypot - hidden from real users */
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Newsletter form */
+  .newsletter-form {
+    position: relative;
+  }
+
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-charcoal);
+    background-color: rgba(250, 247, 242, 0.95);
+    border: 1px solid rgba(250, 247, 242, 0.3);
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    box-sizing: border-box;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-charcoal-light);
+    opacity: 0.6;
+  }
+
+  .form-input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.25);
+  }
+
+  .form-button {
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-forest);
+    background-color: var(--color-gold);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+  }
+
+  .form-button:hover {
+    background-color: var(--color-gold-light);
+    transform: translateY(-1px);
+  }
+
+  .form-button:active {
+    transform: translateY(0);
+  }
+
+  /* Bottom bar */
+  .footer-bottom {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(250, 247, 242, 0.15);
+    text-align: center;
+  }
+
+  .footer-copyright {
+    font-size: var(--font-size-xs);
+    color: var(--color-cream-dark);
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  /* Responsive: tablet */
+  @media (max-width: 900px) {
+    .footer-columns {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .footer-col:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Responsive: mobile */
+  @media (max-width: 600px) {
+    .footer-columns {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .footer-col:last-child {
+      grid-column: auto;
+    }
+
+    .footer-inner {
+      padding: var(--space-lg) var(--space-md) var(--space-md);
+    }
+
+    .footer-bottom {
+      margin-top: var(--space-lg);
+    }
+  }
+</style>
