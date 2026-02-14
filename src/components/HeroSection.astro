@@ -1,0 +1,262 @@
+---
+/**
+ * HeroSection — Full-viewport immersive hero for the homepage.
+ * Background uses a warm gradient placeholder (forest green to golden tone)
+ * with a semi-transparent overlay for text contrast.
+ */
+---
+
+<section class="hero" aria-label="Welcome to Moonbloom Farms">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Sonoma Valley Flower Farm</p>
+    <h1 class="hero-title">Moonbloom Farms</h1>
+    <p class="hero-tagline">Cultivating beauty, rooted in nature.</p>
+    <a href="/contact" class="hero-cta">Visit the Stand</a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-text">Scroll</span>
+    <svg
+      class="scroll-chevron"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+</section>
+
+<style>
+  /* ─── Hero Container ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Pull the hero up behind the sticky header */
+    margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
+    padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
+  }
+
+  /* ─── Background Gradient (placeholder for future image) ─── */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(
+        ellipse 120% 80% at 30% 60%,
+        #3a5a20 0%,
+        #2c5530 25%,
+        #4a6b3a 50%,
+        #8b7a45 75%,
+        #c9a96e 100%
+      );
+    /* Subtle texture via layered gradients */
+    background-image:
+      radial-gradient(
+        ellipse at 20% 80%,
+        rgba(44, 85, 48, 0.9) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 20%,
+        rgba(201, 169, 110, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 50% 50%,
+        rgba(196, 120, 91, 0.15) 0%,
+        transparent 60%
+      ),
+      linear-gradient(
+        160deg,
+        #1e3a22 0%,
+        #2c5530 20%,
+        #3a6b35 40%,
+        #6b7a3a 60%,
+        #a8914e 80%,
+        #c9a96e 100%
+      );
+  }
+
+  /* ─── Dark Overlay ─── */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 42, 28, 0.45) 0%,
+      rgba(30, 42, 28, 0.35) 50%,
+      rgba(30, 42, 28, 0.55) 100%
+    );
+  }
+
+  /* ─── Content ─── */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    max-width: 800px;
+  }
+
+  /* Eyebrow */
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-gold-light);
+    margin: 0 0 var(--space-sm);
+    opacity: 0.9;
+  }
+
+  /* Title */
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-md);
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Tagline */
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    line-height: 1.6;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-lg);
+    opacity: 0.9;
+    font-style: italic;
+    letter-spacing: 0.01em;
+  }
+
+  /* CTA Button */
+  .hero-cta {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-forest);
+    background-color: var(--color-gold);
+    padding: 1rem 2.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition:
+      background-color var(--transition),
+      transform var(--transition),
+      box-shadow var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .hero-cta:hover {
+    background-color: var(--color-gold-light);
+    color: var(--color-forest);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* ─── Scroll Indicator ─── */
+  .scroll-indicator {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-cream);
+    opacity: 0.6;
+    transition: opacity var(--transition);
+  }
+
+  .scroll-indicator:hover {
+    opacity: 0.9;
+  }
+
+  .scroll-text {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .scroll-chevron {
+    animation: bob 2s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(6px);
+    }
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .hero-content {
+      padding: var(--space-md) var(--space-sm);
+    }
+
+    .hero-cta {
+      padding: 0.85rem 2rem;
+      font-size: var(--font-size-xs);
+    }
+
+    .scroll-indicator {
+      bottom: var(--space-md);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      min-height: 100svh;
+    }
+
+    .hero-content {
+      padding: var(--space-sm);
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-chevron {
+      animation: none;
+    }
+
+    .hero-cta {
+      transition: none;
+    }
+  }
+</style>
