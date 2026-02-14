@@ -1,0 +1,243 @@
+---
+/**
+ * BlogPreview — "From the Field" blog preview section for the homepage.
+ * Displays a grid of 3 placeholder blog post cards with hover lift effects
+ * and an "All Posts" link to the blog page.
+ * Uses static placeholder data; Task 14 will wire to Astro content collections.
+ */
+
+const posts = [
+  {
+    date: 'January 15, 2026',
+    title: 'Welcome to Moonbloom',
+    excerpt:
+      'We are so excited to share our little corner of Sonoma Valley with you. Follow along as we grow flowers, raise chickens, and build something beautiful.',
+  },
+  {
+    date: 'February 1, 2026',
+    title: 'Spring Flowers Are Coming',
+    excerpt:
+      'The first signs of spring are peeking through the soil. Here is a look at what we are planting this season and what to expect at the farm stand.',
+  },
+  {
+    date: 'February 10, 2026',
+    title: 'Farm Stand Hours',
+    excerpt:
+      'Our farm stand is open for the season! Stop by Friday through Sunday for fresh blooms, seasonal produce, farm eggs, and curated gifts.',
+  },
+];
+---
+
+<section class="blog-preview" aria-label="From the Field — Blog">
+  <div class="blog-preview-inner container">
+    <h2 class="blog-heading">From the Field</h2>
+
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <article class="blog-card">
+          <div class="blog-card-image" aria-hidden="true">
+            <span class="blog-card-image-text">Photo</span>
+          </div>
+          <div class="blog-card-body">
+            <time class="blog-card-date">{post.date}</time>
+            <h3 class="blog-card-title">{post.title}</h3>
+            <p class="blog-card-excerpt">{post.excerpt}</p>
+            <a href="/blog" class="blog-card-link">
+              Read More <span class="blog-card-link-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="blog-cta">
+      <a href="/blog" class="blog-link">
+        All Posts <span class="blog-link-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ─── Section ─── */
+  .blog-preview {
+    background-color: var(--color-cream-dark);
+    padding: var(--space-2xl) 0;
+  }
+
+  /* ─── Heading ─── */
+  .blog-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+    font-weight: 700;
+    color: var(--color-charcoal);
+    text-align: center;
+    margin: 0 0 var(--space-xl);
+  }
+
+  /* ─── Card Grid ─── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* ─── Card ─── */
+  .blog-card {
+    background-color: var(--color-cream);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition:
+      transform var(--transition),
+      box-shadow var(--transition);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  /* ─── Card Image Placeholder ─── */
+  .blog-card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-card-image-text {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-charcoal-light);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+  }
+
+  /* ─── Card Body ─── */
+  .blog-card-body {
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .blog-card-date {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-charcoal-light);
+    opacity: 0.7;
+  }
+
+  .blog-card-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+
+  .blog-card-excerpt {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-charcoal-light);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ─── Read More Link ─── */
+  .blog-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-forest);
+    text-decoration: none;
+    margin-top: var(--space-xs);
+    transition: color var(--transition);
+  }
+
+  .blog-card-link:hover {
+    color: var(--color-terracotta);
+  }
+
+  .blog-card-link-arrow {
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+
+  .blog-card-link:hover .blog-card-link-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ─── All Posts CTA Link ─── */
+  .blog-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+  }
+
+  .blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-forest);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .blog-link:hover {
+    color: var(--color-terracotta);
+  }
+
+  .blog-link-arrow {
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+
+  .blog-link:hover .blog-link-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ─── Responsive: Tablet ─── */
+  @media (max-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ─── Responsive: Mobile ─── */
+  @media (max-width: 600px) {
+    .blog-preview {
+      padding: var(--space-xl) 0;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .blog-card,
+    .blog-card-link,
+    .blog-card-link-arrow,
+    .blog-link,
+    .blog-link-arrow {
+      transition: none;
+    }
+  }
+</style>
