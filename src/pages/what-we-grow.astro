@@ -1,0 +1,412 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    id: 'seasonal-flowers',
+    name: 'Seasonal Flowers',
+    description: 'From dahlias to sunflowers, zinnias to ranunculus — we grow what the season brings.',
+    bg: 'cream',
+    items: [
+      { name: 'Dahlias', color: 'rgba(196, 120, 91, 0.15)' },
+      { name: 'Sunflowers', color: 'rgba(201, 169, 110, 0.18)' },
+      { name: 'Zinnias', color: 'rgba(58, 112, 64, 0.12)' },
+      { name: 'Ranunculus', color: 'rgba(196, 120, 91, 0.12)' },
+      { name: 'Sweet Peas', color: 'rgba(201, 169, 110, 0.14)' },
+      { name: 'Wildflower Mix', color: 'rgba(58, 112, 64, 0.10)' },
+    ],
+  },
+  {
+    id: 'farm-fresh-produce',
+    name: 'Farm Fresh Produce',
+    description: 'Heirloom tomatoes, fresh herbs, seasonal greens, and whatever else the garden gives us.',
+    bg: 'cream-dark',
+    items: [
+      { name: 'Heirloom Tomatoes', color: 'rgba(196, 120, 91, 0.15)' },
+      { name: 'Fresh Herbs', color: 'rgba(58, 112, 64, 0.14)' },
+      { name: 'Seasonal Greens', color: 'rgba(58, 112, 64, 0.10)' },
+      { name: 'Summer Squash', color: 'rgba(201, 169, 110, 0.16)' },
+      { name: 'Strawberries', color: 'rgba(196, 120, 91, 0.12)' },
+      { name: 'Peppers', color: 'rgba(196, 120, 91, 0.18)' },
+    ],
+  },
+  {
+    id: 'farm-fresh-eggs',
+    name: 'Farm Fresh Eggs',
+    description: 'Happy chickens, beautiful eggs. Available at the stand when the girls are laying.',
+    bg: 'cream',
+    items: [
+      { name: 'Chicken Eggs', color: 'rgba(201, 169, 110, 0.18)' },
+      { name: 'Farm Fresh Dozen', color: 'rgba(196, 120, 91, 0.12)' },
+      { name: 'Rainbow Eggs', color: 'rgba(58, 112, 64, 0.10)' },
+    ],
+  },
+  {
+    id: 'curated-gifts',
+    name: 'Curated Gifts',
+    description: 'Handpicked finds and handmade treasures for your home and garden.',
+    bg: 'cream-dark',
+    items: [
+      { name: 'Candles & Soaps', color: 'rgba(201, 169, 110, 0.16)' },
+      { name: 'Pottery', color: 'rgba(196, 120, 91, 0.14)' },
+      { name: 'Garden Tools', color: 'rgba(58, 112, 64, 0.12)' },
+      { name: 'Dried Arrangements', color: 'rgba(201, 169, 110, 0.12)' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="What We Grow | Moonbloom Farms"
+  description="Explore what Moonbloom Farms grows and sells — seasonal flowers, farm fresh produce, pasture-raised eggs, and curated gifts from our Sonoma Valley farm stand."
+>
+  <!-- Page Hero Banner -->
+  <section class="page-hero" aria-label="What We Grow and Sell">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <h1 class="page-hero-title">What We Grow &amp; Sell</h1>
+      <p class="page-hero-subtitle">A seasonal bounty of flowers, food, and handmade goods — straight from our fields to your table.</p>
+    </div>
+  </section>
+
+  <!-- Category Sections -->
+  {categories.map((category, index) => (
+    <Fragment>
+      <!-- Botanical Divider -->
+      <div class="botanical-divider" aria-hidden="true">
+        <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z" fill="currentColor" opacity="0.7" />
+          <path d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z" fill="currentColor" opacity="0.7" />
+          <path d="M32 30C32 30 32 16 32 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+        </svg>
+      </div>
+
+      <!-- Category Section -->
+      <section
+        class:list={['category-section', { 'category-section--alt': category.bg === 'cream-dark' }]}
+        id={category.id}
+        aria-label={category.name}
+      >
+        <div class="container">
+          <h2 class="category-heading">{category.name}</h2>
+          <p class="category-description">{category.description}</p>
+
+          <div class="photo-grid">
+            {category.items.map((item) => (
+              <div class="photo-card">
+                <div
+                  class="photo-placeholder"
+                  style={`background-color: ${item.color};`}
+                  aria-hidden="true"
+                >
+                  <span class="photo-placeholder-text">Photo</span>
+                </div>
+                <p class="photo-caption">{item.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </Fragment>
+  ))}
+
+  <!-- Botanical Divider -->
+  <div class="botanical-divider" aria-hidden="true">
+    <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z" fill="currentColor" opacity="0.7" />
+      <path d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z" fill="currentColor" opacity="0.7" />
+      <path d="M32 30C32 30 32 16 32 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+    </svg>
+  </div>
+
+  <!-- Bottom CTA -->
+  <section class="bottom-cta" aria-label="Visit the farm stand">
+    <div class="container">
+      <p class="bottom-cta-text">Visit the stand to see what's available today.</p>
+      <a href="/contact" class="bottom-cta-link">
+        Get Directions <span class="bottom-cta-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ─── Page Hero Banner ─── */
+  .page-hero {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
+    padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(
+        ellipse at 25% 65%,
+        rgba(196, 120, 91, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 75% 35%,
+        rgba(201, 169, 110, 0.35) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        160deg,
+        #6b4e2a 0%,
+        #8b6d3f 25%,
+        #a8914e 50%,
+        #6b7a3a 75%,
+        #3a6b35 100%
+      );
+  }
+
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 42, 28, 0.45) 0%,
+      rgba(30, 42, 28, 0.35) 50%,
+      rgba(30, 42, 28, 0.5) 100%
+    );
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    max-width: 700px;
+  }
+
+  .page-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5.5vw, var(--font-size-4xl));
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-sm);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .page-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, var(--font-size-lg));
+    line-height: 1.6;
+    color: var(--color-cream);
+    margin: 0;
+    opacity: 0.9;
+    font-style: italic;
+  }
+
+  /* ─── Botanical Divider ─── */
+  .botanical-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--space-xl) 0;
+    color: var(--color-gold);
+  }
+
+  /* ─── Category Sections ─── */
+  .category-section {
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-cream);
+  }
+
+  .category-section--alt {
+    background-color: var(--color-cream-dark);
+  }
+
+  .category-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+    font-weight: 700;
+    color: var(--color-charcoal);
+    text-align: center;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .category-description {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-xl);
+    font-style: italic;
+  }
+
+  /* ─── Photo Grid ─── */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .photo-card {
+    text-align: center;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .photo-placeholder:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .photo-placeholder-text {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-charcoal-light);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.4;
+  }
+
+  .photo-caption {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-charcoal);
+    margin: var(--space-sm) 0 0;
+  }
+
+  /* ─── Bottom CTA ─── */
+  .bottom-cta {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+  }
+
+  .bottom-cta-text {
+    font-family: var(--font-body);
+    font-size: clamp(var(--font-size-lg), 2.5vw, var(--font-size-xl));
+    line-height: 1.6;
+    color: var(--color-charcoal-light);
+    margin: 0 0 var(--space-md);
+    font-style: italic;
+  }
+
+  .bottom-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-white);
+    background-color: var(--color-forest);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color var(--transition), transform var(--transition);
+  }
+
+  .bottom-cta-link:hover {
+    background-color: var(--color-forest-light);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  .bottom-cta-arrow {
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+
+  .bottom-cta-link:hover .bottom-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ─── Responsive: Tablet ─── */
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 35vh;
+    }
+
+    .page-hero-content {
+      padding: var(--space-lg) var(--space-sm);
+    }
+
+    .photo-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .category-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .botanical-divider {
+      margin: var(--space-lg) 0;
+    }
+  }
+
+  /* ─── Responsive: Small Mobile ─── */
+  @media (max-width: 480px) {
+    .page-hero {
+      min-height: 30vh;
+    }
+
+    .page-hero-content {
+      padding: var(--space-md) var(--space-sm);
+    }
+
+    .photo-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .category-section {
+      padding: var(--space-lg) 0;
+    }
+
+    .bottom-cta {
+      padding: var(--space-xl) 0;
+    }
+
+    .botanical-divider {
+      margin: var(--space-md) 0;
+    }
+  }
+
+  /* ─── Reduced Motion ─── */
+  @media (prefers-reduced-motion: reduce) {
+    .photo-placeholder,
+    .bottom-cta-link,
+    .bottom-cta-arrow {
+      transition: none;
+    }
+
+    .photo-placeholder:hover {
+      transform: none;
+    }
+
+    .bottom-cta-link:hover {
+      transform: none;
+    }
+
+    .bottom-cta-link:hover .bottom-cta-arrow {
+      transform: none;
+    }
+  }
+</style>
