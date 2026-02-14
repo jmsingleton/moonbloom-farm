@@ -1,0 +1,552 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact | Moonbloom Farms"
+  description="Visit our farm stand in Glen Ellen, CA. Find seasonal hours, directions, and sign up for updates from Moonbloom Farms."
+>
+  <!-- Page Hero Banner -->
+  <section class="page-hero" aria-label="Contact Moonbloom Farms">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="page-hero-content">
+      <h1 class="page-hero-title">Get in Touch</h1>
+      <p class="page-hero-subtitle">We'd love to hear from you — stop by the stand, send us a note, or just say hello.</p>
+    </div>
+  </section>
+
+  <!-- Botanical Divider -->
+  <div class="botanical-divider" aria-hidden="true">
+    <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z" fill="currentColor" opacity="0.7" />
+      <path d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z" fill="currentColor" opacity="0.7" />
+      <path d="M32 30C32 30 32 16 32 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+    </svg>
+  </div>
+
+  <!-- Two-Column: Farm Stand Info + Map -->
+  <section class="contact-section" aria-label="Farm stand information and map">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left Column: Farm Stand Info -->
+        <div class="contact-info">
+          <h2 class="contact-heading">Farm Stand</h2>
+
+          <address class="contact-address">
+            <p>14520 Arnold Drive</p>
+            <p>Glen Ellen, CA 95442</p>
+          </address>
+
+          <div class="contact-hours">
+            <h3 class="hours-label">Seasonal Hours</h3>
+            <dl class="hours-list">
+              <div class="hours-row">
+                <dt>Friday</dt>
+                <dd>9am &ndash; 4pm</dd>
+              </div>
+              <div class="hours-row">
+                <dt>Saturday</dt>
+                <dd>9am &ndash; 4pm</dd>
+              </div>
+              <div class="hours-row">
+                <dt>Sunday</dt>
+                <dd>9am &ndash; 2pm</dd>
+              </div>
+            </dl>
+            <p class="hours-note">April through October</p>
+          </div>
+
+          <div class="contact-email">
+            <a href="mailto:hello@moonbloomfarms.com" class="email-link">hello@moonbloomfarms.com</a>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="social-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+              <span class="social-label">Instagram</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Google Maps Embed -->
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12516.0!2d-122.526!3d38.371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085ab8e0d6a1e23%3A0x8a6f20006e53e2a!2sGlen%20Ellen%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Moonbloom Farms location — Glen Ellen, CA"
+          ></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Botanical Divider -->
+  <div class="botanical-divider" aria-hidden="true">
+    <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z" fill="currentColor" opacity="0.7" />
+      <path d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z" fill="currentColor" opacity="0.7" />
+      <path d="M32 30C32 30 32 16 32 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+    </svg>
+  </div>
+
+  <!-- Email Signup Section -->
+  <section class="signup-section" aria-label="Email signup">
+    <div class="container">
+      <div class="signup-inner">
+        <h2 class="signup-heading">Stay in the Loop</h2>
+        <p class="signup-subtitle">Sign up for seasonal updates, farm stand specials, and more.</p>
+
+        <form
+          name="contact-signup"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="signup-form"
+        >
+          <input type="hidden" name="form-name" value="contact-signup" />
+          <p class="honeypot" aria-hidden="true">
+            <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="signup-fields">
+            <input
+              type="text"
+              name="first-name"
+              placeholder="First name"
+              required
+              aria-label="First name"
+              class="signup-input"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              required
+              aria-label="Email address"
+              class="signup-input"
+            />
+            <button type="submit" class="signup-button">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ─── Page Hero Banner ─── */
+  .page-hero {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
+    padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(
+        ellipse at 30% 70%,
+        rgba(44, 85, 48, 0.6) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 70% 30%,
+        rgba(201, 169, 110, 0.3) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        160deg,
+        #2c5530 0%,
+        #3a6b35 30%,
+        #6b7a3a 55%,
+        #a8914e 80%,
+        #c9a96e 100%
+      );
+  }
+
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 42, 28, 0.5) 0%,
+      rgba(30, 42, 28, 0.4) 50%,
+      rgba(30, 42, 28, 0.55) 100%
+    );
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    max-width: 700px;
+  }
+
+  .page-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5.5vw, var(--font-size-4xl));
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-cream);
+    margin: 0 0 var(--space-sm);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .page-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, var(--font-size-lg));
+    line-height: 1.6;
+    color: var(--color-cream);
+    margin: 0;
+    opacity: 0.9;
+    font-style: italic;
+  }
+
+  /* ─── Botanical Divider ─── */
+  .botanical-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--space-xl) 0;
+    color: var(--color-gold);
+  }
+
+  /* ─── Contact Section: Two-Column Layout ─── */
+  .contact-section {
+    padding: var(--space-lg) 0 var(--space-2xl);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  /* ─── Left Column: Farm Stand Info ─── */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .contact-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+    font-weight: 700;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+
+  .contact-address {
+    font-style: normal;
+    line-height: 1.7;
+  }
+
+  .contact-address p {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    color: var(--color-charcoal-light);
+  }
+
+  /* ─── Seasonal Hours ─── */
+  .hours-label {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-charcoal);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .hours-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.45em 0;
+    border-bottom: 1px solid var(--color-cream-dark);
+  }
+
+  .hours-row:last-child {
+    border-bottom: none;
+  }
+
+  .hours-row dt {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-charcoal);
+  }
+
+  .hours-row dd {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-charcoal-light);
+  }
+
+  .hours-note {
+    margin: var(--space-xs) 0 0;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-terracotta);
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  /* ─── Email ─── */
+  .contact-email {
+    margin: 0;
+  }
+
+  .email-link {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    color: var(--color-forest);
+    text-decoration: none;
+    transition: color var(--transition);
+    border-bottom: 1px solid transparent;
+  }
+
+  .email-link:hover {
+    color: var(--color-forest-light);
+    border-bottom-color: var(--color-forest-light);
+  }
+
+  /* ─── Social Media Links ─── */
+  .contact-social {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em 1em;
+    border: 1.5px solid var(--color-forest);
+    border-radius: 999px;
+    color: var(--color-forest);
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+  }
+
+  .social-link:hover {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+    border-color: var(--color-forest);
+  }
+
+  .social-label {
+    line-height: 1;
+  }
+
+  /* ─── Right Column: Google Maps Embed ─── */
+  .contact-map {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-cream-dark);
+  }
+
+  .contact-map iframe {
+    display: block;
+    width: 100%;
+    height: 400px;
+    border-radius: var(--border-radius);
+  }
+
+  /* ─── Email Signup Section ─── */
+  .signup-section {
+    background-color: var(--color-cream-dark);
+    padding: var(--space-2xl) 0;
+  }
+
+  .signup-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .signup-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+    font-weight: 700;
+    color: var(--color-charcoal);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .signup-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    color: var(--color-charcoal-light);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .signup-form {
+    position: relative;
+  }
+
+  /* Honeypot - hidden from real users */
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .signup-fields {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .signup-input {
+    flex: 1 1 180px;
+    min-width: 0;
+    padding: 0.8rem 1.2rem;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-charcoal);
+    background-color: var(--color-white);
+    border: 1.5px solid var(--color-cream-dark);
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    box-sizing: border-box;
+  }
+
+  .signup-input::placeholder {
+    color: var(--color-charcoal-light);
+    opacity: 0.55;
+  }
+
+  .signup-input:focus {
+    border-color: var(--color-forest);
+    box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.15);
+  }
+
+  .signup-button {
+    flex: 0 0 auto;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-cream);
+    background-color: var(--color-forest);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+  }
+
+  .signup-button:hover {
+    background-color: var(--color-forest-light);
+    transform: translateY(-1px);
+  }
+
+  .signup-button:active {
+    transform: translateY(0);
+  }
+
+  .signup-button:focus-visible {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 3px;
+  }
+
+  /* ─── Responsive: Tablet ─── */
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 35vh;
+    }
+
+    .page-hero-content {
+      padding: var(--space-lg) var(--space-sm);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .contact-map iframe {
+      height: 320px;
+    }
+
+    .signup-fields {
+      flex-direction: column;
+    }
+
+    .signup-input {
+      flex: 1 1 auto;
+    }
+  }
+
+  /* ─── Responsive: Small Mobile ─── */
+  @media (max-width: 480px) {
+    .page-hero {
+      min-height: 30vh;
+    }
+
+    .page-hero-content {
+      padding: var(--space-md) var(--space-sm);
+    }
+
+    .contact-section {
+      padding: var(--space-sm) 0 var(--space-xl);
+    }
+
+    .signup-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .contact-map iframe {
+      height: 280px;
+    }
+  }
+
+  /* ─── Reduced Motion ─── */
+  @media (prefers-reduced-motion: reduce) {
+    .signup-button,
+    .social-link,
+    .email-link {
+      transition: none;
+    }
+  }
+</style>
