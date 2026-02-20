@@ -30,7 +30,7 @@ const formattedDate = entry.data.date.toLocaleDateString('en-US', {
 ---
 
 <BaseLayout
-  title={entry.data.title + " | Moonbloom Farms"}
+  title={entry.data.title + " | Moonbloom Farm"}
   description={entry.data.description}
 >
   <article class="blog-post">
@@ -44,7 +44,11 @@ const formattedDate = entry.data.date.toLocaleDateString('en-US', {
         {entry.data.image && (
           <div class="post-hero-image" aria-label="Post hero image">
             <div class="post-hero-placeholder">
-              <span class="post-hero-placeholder-text">Photo</span>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="placeholder-icon">
+                <path d="M16 28C16 28 12 22 7 19C2 16 1 10 1 10C1 10 7 11 11 15C14 17.8 15.5 22 16 28Z" fill="currentColor" opacity="0.4" />
+                <path d="M16 28C16 28 20 22 25 19C30 16 31 10 31 10C31 10 25 11 21 15C18 17.8 16.5 22 16 28Z" fill="currentColor" opacity="0.4" />
+                <path d="M16 28V10" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.3" />
+              </svg>
             </div>
           </div>
         )}
