@@ -3,15 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="About | Moonbloom Farms"
-  description="Learn the story of Moonbloom Farms — a family flower farm in Sonoma Valley growing seasonal blooms, fresh produce, and community since 2018."
+  title="About | Moonbloom Farm"
+  description="Learn the story of Moonbloom Farm — a family flower farm in Sonoma Valley growing seasonal blooms, fresh produce, and community since 2018."
 >
   <!-- Page Hero Banner -->
-  <section class="page-hero" aria-label="About Moonbloom Farms">
-    <div class="page-hero-bg" aria-hidden="true"></div>
-    <div class="page-hero-overlay" aria-hidden="true"></div>
+  <section class="page-hero" aria-label="About Moonbloom Farm">
     <div class="page-hero-content">
-      <h1 class="page-hero-title">About Moonbloom Farms</h1>
+      <h1 class="page-hero-title">About Moonbloom Farm</h1>
       <p class="page-hero-subtitle">A story of soil, seasons, and slow-grown beauty in the heart of Sonoma Valley.</p>
     </div>
   </section>
@@ -32,13 +30,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="story-block">
         <div class="story-photo-wrapper">
           <div class="story-photo-placeholder">
-            <img src="/images/about-farm.svg" alt="Moonbloom Farms fields" class="story-photo-img" loading="lazy" />
+            <img src="/images/about-farm.svg" alt="Moonbloom Farm fields" class="story-photo-img" loading="lazy" />
           </div>
         </div>
         <div class="story-text">
           <h2 class="story-heading">How It All Began</h2>
           <p class="story-description">
-            Moonbloom Farms started the way most good things do — with dirt under our fingernails and a dream we couldn't shake. In 2018, we traded city life for five sun-drenched acres in the Sonoma Valley, not entirely sure what we were doing, but certain that this was where we belonged.
+            Moonbloom Farm started the way most good things do — with dirt under our fingernails and a dream we couldn't shake. In 2018, we traded city life for five sun-drenched acres in the Sonoma Valley, not entirely sure what we were doing, but certain that this was where we belonged.
           </p>
           <p class="story-description">
             That first season, we planted dahlias, zinnias, and a whole lot of hope. Some things flourished. Some didn't. But the land was patient with us, and slowly, row by row, Moonbloom took shape — not just as a farm, but as a way of life.
@@ -50,7 +48,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="story-block story-block--reversed">
         <div class="story-photo-wrapper">
           <div class="story-photo-placeholder">
-            <img src="/images/placeholder-flowers.svg" alt="Growing philosophy at Moonbloom Farms" class="story-photo-img" loading="lazy" />
+            <img src="/images/placeholder-flowers.svg" alt="Growing philosophy at Moonbloom Farm" class="story-photo-img" loading="lazy" />
           </div>
         </div>
         <div class="story-text">
@@ -151,7 +149,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="farmer-block">
         <div class="farmer-photo-wrapper">
           <div class="farmer-photo-placeholder">
-            <img src="/images/about-farmer.svg" alt="Sarah Mitchell, farmer at Moonbloom Farms" class="farmer-photo-img" loading="lazy" />
+            <img src="/images/about-farmer.svg" alt="Sarah Mitchell, farmer at Moonbloom Farm" class="farmer-photo-img" loading="lazy" />
           </div>
         </div>
         <div class="farmer-text">
@@ -180,43 +178,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     overflow: hidden;
     margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
     padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
-  }
-
-  .page-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background:
-      radial-gradient(
-        ellipse at 30% 70%,
-        rgba(44, 85, 48, 0.6) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        ellipse at 70% 30%,
-        rgba(201, 169, 110, 0.3) 0%,
-        transparent 50%
-      ),
-      linear-gradient(
-        160deg,
-        #2c5530 0%,
-        #3a6b35 30%,
-        #6b7a3a 55%,
-        #a8914e 80%,
-        #c9a96e 100%
-      );
-  }
-
-  .page-hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(30, 42, 28, 0.5) 0%,
-      rgba(30, 42, 28, 0.4) 50%,
-      rgba(30, 42, 28, 0.55) 100%
-    );
+    background: linear-gradient(180deg, #4a5a40 0%, #566748 100%);
   }
 
   .page-hero-content {
@@ -234,7 +196,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1.1;
     color: var(--color-cream);
     margin: 0 0 var(--space-sm);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   }
 
   .page-hero-subtitle {

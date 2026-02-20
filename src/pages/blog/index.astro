@@ -8,13 +8,11 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <BaseLayout
-  title="Blog | Moonbloom Farms"
-  description="Stories from the field — seasonal updates, growing tips, and farm life at Moonbloom Farms in the Sonoma Valley."
+  title="Blog | Moonbloom Farm"
+  description="Stories from the field — seasonal updates, growing tips, and farm life at Moonbloom Farm in the Sonoma Valley."
 >
   <!-- Page Hero Banner -->
   <section class="page-hero" aria-label="Blog — From the Field">
-    <div class="page-hero-bg" aria-hidden="true"></div>
-    <div class="page-hero-overlay" aria-hidden="true"></div>
     <div class="page-hero-content">
       <h1 class="page-hero-title">From the Field</h1>
       <p class="page-hero-subtitle">Seasonal stories, growing updates, and dispatches from life on the farm.</p>
@@ -65,43 +63,7 @@ const posts = (await getCollection('blog')).sort(
     overflow: hidden;
     margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
     padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
-  }
-
-  .page-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background:
-      radial-gradient(
-        ellipse at 30% 70%,
-        rgba(44, 85, 48, 0.6) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        ellipse at 70% 30%,
-        rgba(201, 169, 110, 0.3) 0%,
-        transparent 50%
-      ),
-      linear-gradient(
-        160deg,
-        #2c5530 0%,
-        #3a6b35 30%,
-        #6b7a3a 55%,
-        #a8914e 80%,
-        #c9a96e 100%
-      );
-  }
-
-  .page-hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(30, 42, 28, 0.5) 0%,
-      rgba(30, 42, 28, 0.4) 50%,
-      rgba(30, 42, 28, 0.55) 100%
-    );
+    background: linear-gradient(180deg, #3d4f3d 0%, #4a5a48 100%);
   }
 
   .page-hero-content {
@@ -119,7 +81,6 @@ const posts = (await getCollection('blog')).sort(
     line-height: 1.1;
     color: var(--color-cream);
     margin: 0 0 var(--space-sm);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   }
 
   .page-hero-subtitle {

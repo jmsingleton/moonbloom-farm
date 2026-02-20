@@ -57,13 +57,11 @@ const categories = [
 ---
 
 <BaseLayout
-  title="What We Grow | Moonbloom Farms"
-  description="Explore what Moonbloom Farms grows and sells — seasonal flowers, farm fresh produce, pasture-raised eggs, and curated gifts from our Sonoma Valley farm stand."
+  title="What We Grow | Moonbloom Farm"
+  description="Explore what Moonbloom Farm grows and sells — seasonal flowers, farm fresh produce, pasture-raised eggs, and curated gifts from our Sonoma Valley farm stand."
 >
   <!-- Page Hero Banner -->
   <section class="page-hero" aria-label="What We Grow and Sell">
-    <div class="page-hero-bg" aria-hidden="true"></div>
-    <div class="page-hero-overlay" aria-hidden="true"></div>
     <div class="page-hero-content">
       <h1 class="page-hero-title">What We Grow &amp; Sell</h1>
       <p class="page-hero-subtitle">A seasonal bounty of flowers, food, and handmade goods — straight from our fields to your table.</p>
@@ -142,43 +140,7 @@ const categories = [
     overflow: hidden;
     margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
     padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
-  }
-
-  .page-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background:
-      radial-gradient(
-        ellipse at 25% 65%,
-        rgba(196, 120, 91, 0.4) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        ellipse at 75% 35%,
-        rgba(201, 169, 110, 0.35) 0%,
-        transparent 50%
-      ),
-      linear-gradient(
-        160deg,
-        #6b4e2a 0%,
-        #8b6d3f 25%,
-        #a8914e 50%,
-        #6b7a3a 75%,
-        #3a6b35 100%
-      );
-  }
-
-  .page-hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(30, 42, 28, 0.45) 0%,
-      rgba(30, 42, 28, 0.35) 50%,
-      rgba(30, 42, 28, 0.5) 100%
-    );
+    background: linear-gradient(180deg, #5e6f50 0%, #6a7a5a 100%);
   }
 
   .page-hero-content {
@@ -196,7 +158,6 @@ const categories = [
     line-height: 1.1;
     color: var(--color-cream);
     margin: 0 0 var(--space-sm);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   }
 
   .page-hero-subtitle {

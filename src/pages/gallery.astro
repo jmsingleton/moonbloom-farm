@@ -36,13 +36,11 @@ const categories = ['all', 'flowers', 'farm', 'products'] as const;
 ---
 
 <BaseLayout
-  title="Gallery | Moonbloom Farms"
-  description="Browse photos from Moonbloom Farms — seasonal blooms, life on the farm, and our handcrafted floral products."
+  title="Gallery | Moonbloom Farm"
+  description="Browse photos from Moonbloom Farm — seasonal blooms, life on the farm, and our handcrafted floral products."
 >
   <!-- Page Hero Banner -->
   <section class="page-hero" aria-label="Gallery">
-    <div class="page-hero-bg" aria-hidden="true"></div>
-    <div class="page-hero-overlay" aria-hidden="true"></div>
     <div class="page-hero-content">
       <h1 class="page-hero-title">Gallery</h1>
       <p class="page-hero-subtitle">A glimpse into life at the farm</p>
@@ -122,43 +120,7 @@ const categories = ['all', 'flowers', 'farm', 'products'] as const;
     overflow: hidden;
     margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
     padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
-  }
-
-  .page-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background:
-      radial-gradient(
-        ellipse at 30% 70%,
-        rgba(44, 85, 48, 0.6) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        ellipse at 70% 30%,
-        rgba(201, 169, 110, 0.3) 0%,
-        transparent 50%
-      ),
-      linear-gradient(
-        160deg,
-        #2c5530 0%,
-        #3a6b35 30%,
-        #6b7a3a 55%,
-        #a8914e 80%,
-        #c9a96e 100%
-      );
-  }
-
-  .page-hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(30, 42, 28, 0.5) 0%,
-      rgba(30, 42, 28, 0.4) 50%,
-      rgba(30, 42, 28, 0.55) 100%
-    );
+    background: linear-gradient(180deg, #6e5c4a 0%, #7a6854 100%);
   }
 
   .page-hero-content {
@@ -176,7 +138,6 @@ const categories = ['all', 'flowers', 'farm', 'products'] as const;
     line-height: 1.1;
     color: var(--color-cream);
     margin: 0 0 var(--space-sm);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   }
 
   .page-hero-subtitle {
@@ -324,6 +285,7 @@ const categories = ['all', 'flowers', 'farm', 'products'] as const;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    animation: none;
   }
 
   .lightbox[aria-hidden="false"] {
@@ -522,27 +484,17 @@ const categories = ['all', 'flowers', 'farm', 'products'] as const;
   }
 </style>
 
-<script>
-  /**
-   * Gallery page interactivity:
-   * 1. Category filter buttons
-   * 2. Lightbox with navigation
-   */
-  document.addEventListener('DOMContentLoaded', () => {
-    // ─── Category Filtering ───
-    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-    const galleryItems = document.querySelectorAll<HTMLButtonElement>('.masonry-item');
+<script is:inline>
+  (function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.masonry-item');
 
-    filterBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
         const filter = btn.getAttribute('data-filter');
-
-        // Update active button
-        filterBtns.forEach((b) => b.classList.remove('filter-btn--active'));
+        filterBtns.forEach(function(b) { b.classList.remove('filter-btn--active'); });
         btn.classList.add('filter-btn--active');
-
-        // Show/hide items
-        galleryItems.forEach((item) => {
+        galleryItems.forEach(function(item) {
           const category = item.getAttribute('data-category');
           if (filter === 'all' || category === filter) {
             item.removeAttribute('data-hidden');
@@ -553,25 +505,26 @@ const categories = ['all', 'flowers', 'farm', 'products'] as const;
       });
     });
 
-    // ─── Lightbox ───
-    const lightbox = document.getElementById('lightbox')!;
-    const lightboxOverlay = document.getElementById('lightbox-overlay')!;
-    const lightboxClose = document.getElementById('lightbox-close')!;
-    const lightboxPrev = document.getElementById('lightbox-prev')!;
-    const lightboxNext = document.getElementById('lightbox-next')!;
-    const lightboxImage = document.getElementById('lightbox-image')!;
-    const lightboxCaption = document.getElementById('lightbox-caption')!;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
 
-    let currentIndex = 0;
-    let visibleItems: HTMLButtonElement[] = [];
+    if (!lightbox || !lightboxClose || !lightboxOverlay) return;
 
-    function getVisibleItems(): HTMLButtonElement[] {
-      return Array.from(galleryItems).filter(
-        (item) => item.getAttribute('data-hidden') !== 'true'
-      );
+    var currentIndex = 0;
+    var visibleItems = [];
+
+    function getVisibleItems() {
+      return Array.from(galleryItems).filter(function(item) {
+        return item.getAttribute('data-hidden') !== 'true';
+      });
     }
 
-    function openLightbox(index: number): void {
+    function openLightbox(index) {
       visibleItems = getVisibleItems();
       currentIndex = index;
       updateLightboxContent();
@@ -580,81 +533,66 @@ const categories = ['all', 'flowers', 'farm', 'products'] as const;
       lightboxClose.focus();
     }
 
-    function closeLightbox(): void {
+    function closeLightbox() {
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      // Return focus to the gallery item that was clicked
       if (visibleItems[currentIndex]) {
         visibleItems[currentIndex].focus();
       }
     }
 
-    function updateLightboxContent(): void {
-      const item = visibleItems[currentIndex];
+    function updateLightboxContent() {
+      var item = visibleItems[currentIndex];
       if (!item) return;
-
-      const placeholder = item.querySelector('.masonry-placeholder') as HTMLElement;
-      const caption = item.querySelector('.masonry-caption')?.textContent || '';
-      const bg = placeholder.style.backgroundColor;
-      const aspect = placeholder.style.aspectRatio;
-
+      var placeholder = item.querySelector('.masonry-placeholder');
+      var captionEl = item.querySelector('.masonry-caption');
+      var caption = captionEl ? captionEl.textContent : '';
+      var bg = placeholder.style.backgroundColor;
+      var aspect = placeholder.style.aspectRatio;
       lightboxImage.style.backgroundColor = bg;
       lightboxImage.style.aspectRatio = aspect;
       lightboxImage.textContent = 'Photo';
       lightboxCaption.textContent = caption;
     }
 
-    function goToPrev(): void {
+    function goToPrev() {
       currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
       updateLightboxContent();
     }
 
-    function goToNext(): void {
+    function goToNext() {
       currentIndex = (currentIndex + 1) % visibleItems.length;
       updateLightboxContent();
     }
 
-    // Open lightbox on gallery item click
-    galleryItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        const visible = getVisibleItems();
-        const idx = visible.indexOf(item);
+    galleryItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        var visible = getVisibleItems();
+        var idx = visible.indexOf(item);
         if (idx !== -1) {
           openLightbox(idx);
         }
       });
     });
 
-    // Close events
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxOverlay.addEventListener('click', closeLightbox);
 
-    // Navigation events
-    lightboxPrev.addEventListener('click', (e) => {
+    lightboxPrev.addEventListener('click', function(e) {
       e.stopPropagation();
       goToPrev();
     });
 
-    lightboxNext.addEventListener('click', (e) => {
+    lightboxNext.addEventListener('click', function(e) {
       e.stopPropagation();
       goToNext();
     });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e: KeyboardEvent) => {
+    document.addEventListener('keydown', function(e) {
       if (lightbox.getAttribute('aria-hidden') !== 'false') return;
-
-      switch (e.key) {
-        case 'Escape':
-          closeLightbox();
-          break;
-        case 'ArrowLeft':
-          goToPrev();
-          break;
-        case 'ArrowRight':
-          goToNext();
-          break;
-      }
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') goToPrev();
+      if (e.key === 'ArrowRight') goToNext();
     });
-  });
+  })();
 </script>
