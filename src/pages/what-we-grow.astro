@@ -3,38 +3,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const categories = [
   {
-    id: 'seasonal-flowers',
-    name: 'Seasonal Flowers',
-    description: 'From dahlias to sunflowers, zinnias to ranunculus — we grow what the season brings.',
-    bg: 'cream',
-    items: [
-      { name: 'Dahlias', color: 'rgba(196, 120, 91, 0.15)' },
-      { name: 'Sunflowers', color: 'rgba(201, 169, 110, 0.18)' },
-      { name: 'Zinnias', color: 'rgba(58, 112, 64, 0.12)' },
-      { name: 'Ranunculus', color: 'rgba(196, 120, 91, 0.12)' },
-      { name: 'Sweet Peas', color: 'rgba(201, 169, 110, 0.14)' },
-      { name: 'Wildflower Mix', color: 'rgba(58, 112, 64, 0.10)' },
-    ],
-  },
-  {
-    id: 'farm-fresh-produce',
-    name: 'Farm Fresh Produce',
+    id: 'seasonal-produce',
+    name: 'Seasonal Produce',
     description: 'Heirloom tomatoes, fresh herbs, seasonal greens, and whatever else the garden gives us.',
-    bg: 'cream-dark',
+    bg: 'cream',
     items: [
       { name: 'Heirloom Tomatoes', color: 'rgba(196, 120, 91, 0.15)' },
       { name: 'Fresh Herbs', color: 'rgba(58, 112, 64, 0.14)' },
       { name: 'Seasonal Greens', color: 'rgba(58, 112, 64, 0.10)' },
       { name: 'Summer Squash', color: 'rgba(201, 169, 110, 0.16)' },
-      { name: 'Strawberries', color: 'rgba(196, 120, 91, 0.12)' },
       { name: 'Peppers', color: 'rgba(196, 120, 91, 0.18)' },
+      { name: 'Strawberries', color: 'rgba(196, 120, 91, 0.12)' },
     ],
   },
   {
     id: 'farm-fresh-eggs',
     name: 'Farm Fresh Eggs',
-    description: 'Happy chickens, beautiful eggs. Available at the stand when the girls are laying.',
-    bg: 'cream',
+    description: 'Happy chickens, beautiful eggs. Pasture-raised and available at the stand when the girls are laying.',
+    bg: 'cream-dark',
     items: [
       { name: 'Chicken Eggs', color: 'rgba(201, 169, 110, 0.18)' },
       { name: 'Farm Fresh Dozen', color: 'rgba(196, 120, 91, 0.12)' },
@@ -42,15 +28,27 @@ const categories = [
     ],
   },
   {
-    id: 'curated-gifts',
-    name: 'Curated Gifts',
-    description: 'Handpicked finds and handmade treasures for your home and garden.',
+    id: 'farm-goods',
+    name: 'Farm Goods',
+    description: 'Small-batch preserves, hot sauce, honey, and other goods made right here on the farm.',
+    bg: 'cream',
+    items: [
+      { name: 'Preserves', color: 'rgba(196, 120, 91, 0.15)' },
+      { name: 'Hot Sauce', color: 'rgba(196, 120, 91, 0.18)' },
+      { name: 'Local Honey', color: 'rgba(201, 169, 110, 0.18)' },
+      { name: 'Pickled Vegetables', color: 'rgba(58, 112, 64, 0.12)' },
+    ],
+  },
+  {
+    id: 'curated-goods',
+    name: 'Curated Goods',
+    description: 'Handpicked finds for your next Sonoma Valley adventure — from local artisans and makers.',
     bg: 'cream-dark',
     items: [
       { name: 'Candles & Soaps', color: 'rgba(201, 169, 110, 0.16)' },
       { name: 'Pottery', color: 'rgba(196, 120, 91, 0.14)' },
       { name: 'Garden Tools', color: 'rgba(58, 112, 64, 0.12)' },
-      { name: 'Dried Arrangements', color: 'rgba(201, 169, 110, 0.12)' },
+      { name: 'Local Provisions', color: 'rgba(201, 169, 110, 0.12)' },
     ],
   },
 ];
@@ -58,13 +56,13 @@ const categories = [
 
 <BaseLayout
   title="What We Grow | Moonbloom Farm"
-  description="Explore what Moonbloom Farm grows and sells — seasonal flowers, farm fresh produce, pasture-raised eggs, and curated gifts from our Sonoma Valley farm stand."
+  description="Explore what Moonbloom Farm grows and sells — seasonal produce, farm fresh eggs, small-batch farm goods, and curated goods from our Glen Ellen farm stand."
 >
   <!-- Page Hero Banner -->
   <section class="page-hero" aria-label="What We Grow and Sell">
     <div class="page-hero-content">
       <h1 class="page-hero-title">What We Grow &amp; Sell</h1>
-      <p class="page-hero-subtitle">A seasonal bounty of flowers, food, and handmade goods — straight from our fields to your table.</p>
+      <p class="page-hero-subtitle">A seasonal bounty of organic produce, farm goods, and curated finds — straight from our fields to your table.</p>
     </div>
   </section>
 

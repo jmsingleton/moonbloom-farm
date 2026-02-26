@@ -8,36 +8,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 interface GalleryItem {
   caption: string;
-  category: 'flowers' | 'farm' | 'products';
+  category: 'harvest' | 'farm' | 'products';
   aspect: '16/9' | '3/4' | '1/1';
   bg: string;
 }
 
 const galleryItems: GalleryItem[] = [
-  { caption: 'Spring Dahlias',       category: 'flowers',  aspect: '3/4',  bg: 'rgba(196, 120, 91, 0.15)' },
+  { caption: 'Harvest Day',          category: 'harvest',  aspect: '3/4',  bg: 'rgba(196, 120, 91, 0.15)' },
   { caption: 'Morning Light',        category: 'farm',     aspect: '16/9', bg: 'rgba(201, 169, 110, 0.18)' },
-  { caption: 'Fresh Bouquet',        category: 'products', aspect: '1/1',  bg: 'var(--color-cream-dark)' },
-  { caption: 'The Dahlia Field',     category: 'flowers',  aspect: '16/9', bg: 'rgba(44, 85, 48, 0.10)' },
+  { caption: 'Eggs in a Basket',     category: 'products', aspect: '1/1',  bg: 'var(--color-cream-dark)' },
+  { caption: 'The Garden Rows',      category: 'harvest',  aspect: '16/9', bg: 'rgba(44, 85, 48, 0.10)' },
   { caption: 'The Stand',            category: 'products', aspect: '3/4',  bg: 'rgba(196, 120, 91, 0.10)' },
   { caption: 'Sunset Over the Rows', category: 'farm',     aspect: '16/9', bg: 'rgba(201, 169, 110, 0.12)' },
-  { caption: 'Ranunculus Harvest',   category: 'flowers',  aspect: '1/1',  bg: 'rgba(196, 120, 91, 0.12)' },
+  { caption: 'Tomato Harvest',       category: 'harvest',  aspect: '1/1',  bg: 'rgba(196, 120, 91, 0.12)' },
   { caption: 'Barn at Dawn',         category: 'farm',     aspect: '3/4',  bg: 'var(--color-cream-dark)' },
-  { caption: 'Dried Wreath',         category: 'products', aspect: '1/1',  bg: 'rgba(201, 169, 110, 0.15)' },
-  { caption: 'Sweet Pea Trellis',    category: 'flowers',  aspect: '3/4',  bg: 'rgba(44, 85, 48, 0.08)' },
+  { caption: 'Preserves Shelf',      category: 'products', aspect: '1/1',  bg: 'rgba(201, 169, 110, 0.15)' },
+  { caption: 'Herb Garden',          category: 'harvest',  aspect: '3/4',  bg: 'rgba(44, 85, 48, 0.08)' },
   { caption: 'Market Day',           category: 'products', aspect: '16/9', bg: 'rgba(196, 120, 91, 0.08)' },
-  { caption: 'Wildflower Meadow',    category: 'flowers',  aspect: '16/9', bg: 'rgba(201, 169, 110, 0.10)' },
+  { caption: 'Dax on Patrol',        category: 'farm',     aspect: '16/9', bg: 'rgba(201, 169, 110, 0.10)' },
   { caption: 'Garden Pathway',       category: 'farm',     aspect: '1/1',  bg: 'rgba(44, 85, 48, 0.12)' },
-  { caption: 'Zinnia Close-Up',      category: 'flowers',  aspect: '1/1',  bg: 'rgba(196, 120, 91, 0.18)' },
+  { caption: 'Pepper Close-Up',      category: 'harvest',  aspect: '1/1',  bg: 'rgba(196, 120, 91, 0.18)' },
   { caption: 'Herb Bundles',         category: 'products', aspect: '3/4',  bg: 'var(--color-cream-dark)' },
   { caption: 'Fog in the Valley',    category: 'farm',     aspect: '16/9', bg: 'rgba(44, 85, 48, 0.06)' },
 ];
 
-const categories = ['all', 'flowers', 'farm', 'products'] as const;
+const categories = ['all', 'harvest', 'farm', 'products'] as const;
 ---
 
 <BaseLayout
   title="Gallery | Moonbloom Farm"
-  description="Browse photos from Moonbloom Farm — seasonal blooms, life on the farm, and our handcrafted floral products."
+  description="Browse photos from Moonbloom Farm — seasonal harvests, life on the farm, and our small-batch farm goods."
 >
   <!-- Page Hero Banner -->
   <section class="page-hero" aria-label="Gallery">
