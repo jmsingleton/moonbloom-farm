@@ -16,6 +16,9 @@ const hours = [
       <!-- Left: Info -->
       <div class="farm-stand-info">
         <h2 class="farm-stand-heading">Visit the Stand</h2>
+        <p class="farm-stand-deck">
+          Eggs from our flock and whatever the garden is giving us that week.
+        </p>
 
         <address class="farm-stand-address">
           13700 Arnold Drive<br />
@@ -23,7 +26,7 @@ const hours = [
         </address>
 
         <div class="farm-stand-hours">
-          <h3 class="farm-stand-hours-heading">Hours</h3>
+          <p class="farm-stand-hours-label">Hours</p>
           <dl class="farm-stand-hours-list">
             {hours.map((slot) => (
               <div class="farm-stand-hours-row">
@@ -33,10 +36,6 @@ const hours = [
             ))}
           </dl>
         </div>
-
-        <p class="farm-stand-note">
-          Eggs from our flock and whatever the garden is giving us that week.
-        </p>
       </div>
 
       <!-- Right: Map -->
@@ -79,9 +78,20 @@ const hours = [
   .farm-stand-heading {
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-paper);
+    margin: 0 0 var(--space-xs);
+    letter-spacing: -0.005em;
+  }
+
+  .farm-stand-deck {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    color: var(--color-brass-soft);
     margin: 0 0 var(--space-lg);
+    max-width: 32ch;
   }
 
   .farm-stand-address {
@@ -95,14 +105,16 @@ const hours = [
 
   /* ─── Hours ─── */
   .farm-stand-hours {
-    margin: 0 0 var(--space-lg);
+    margin: 0;
   }
 
-  .farm-stand-hours-heading {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    color: var(--color-paper);
+  .farm-stand-hours-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-brass-soft);
     margin: 0 0 var(--space-sm);
   }
 
@@ -131,16 +143,6 @@ const hours = [
     font-size: var(--font-size-base);
     color: var(--color-brass-soft);
     margin: 0;
-  }
-
-  /* ─── Note ─── */
-  .farm-stand-note {
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    color: rgba(250, 247, 242, 0.75);
-    margin: 0;
-    max-width: 420px;
   }
 
   /* ─── Right: Map ─── */
@@ -177,8 +179,9 @@ const hours = [
       gap: var(--space-md);
     }
 
-    .farm-stand-note {
-      max-width: 100%;
+    .farm-stand-deck {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .farm-stand-map iframe {
