@@ -1,45 +1,27 @@
 ---
-/**
- * GrowPreview — "What We Grow & Sell" preview section for the homepage.
- * Displays a grid of 4 product category cards with image placeholders
- * and a "See Everything" link to the full page.
- */
-
 const categories = [
   {
-    name: 'Flowers',
-    description: 'Seasonal blooms grown with love, from dahlias to sunflowers.',
-    color: 'var(--color-forest-light)',
-    colorAlpha: 'rgba(58, 112, 64, 0.12)',
-    image: '/images/placeholder-flowers.svg',
-  },
-  {
-    name: 'Seasonal Produce',
-    description: 'Fresh-picked vegetables and herbs straight from our fields.',
-    color: 'var(--color-gold)',
-    colorAlpha: 'rgba(201, 169, 110, 0.18)',
-    image: '/images/placeholder-produce.svg',
-  },
-  {
-    name: 'Farm Fresh Eggs',
-    description: 'Pasture-raised eggs from our happy, free-roaming hens.',
-    color: 'var(--color-terracotta)',
-    colorAlpha: 'rgba(196, 120, 91, 0.15)',
+    name: 'Eggs',
+    description: 'Pasture-raised, when the girls are laying.',
     image: '/images/placeholder-eggs.svg',
   },
   {
-    name: 'Curated Gifts',
-    description: 'Handpicked goods and gift boxes inspired by the farm.',
-    color: 'var(--color-charcoal-light)',
-    colorAlpha: 'rgba(92, 92, 88, 0.10)',
-    image: '/images/placeholder-gifts.svg',
+    name: 'Produce',
+    description: 'Whatever the garden is offering this week.',
+    image: '/images/placeholder-produce.svg',
+  },
+  {
+    name: 'Baked Goods',
+    description: 'From the farmhouse kitchen, when the oven is on.',
+    image: '/images/placeholder-baked-goods.svg',
   },
 ];
 ---
 
-<section class="grow-preview" aria-label="What We Grow and Sell">
+<section class="grow-preview" aria-label="What We Grow">
   <div class="grow-preview-inner container">
-    <h2 class="grow-heading">What We Grow &amp; Sell</h2>
+    <h2 class="grow-heading">At the Stand</h2>
+    <p class="grow-subheading">Three things, made small, sold honestly.</p>
 
     <div class="grow-grid">
       {categories.map((cat) => (
@@ -54,7 +36,7 @@ const categories = [
     </div>
 
     <div class="grow-cta">
-      <a href="/what-we-grow" class="grow-link">
+      <a href="/what-we-sell" class="grow-link">
         See Everything <span class="grow-link-arrow" aria-hidden="true">&rarr;</span>
       </a>
     </div>
@@ -64,7 +46,7 @@ const categories = [
 <style>
   /* ─── Section ─── */
   .grow-preview {
-    background-color: var(--color-cream-dark);
+    background-color: var(--color-paper-deep);
     padding: var(--space-2xl) 0;
   }
 
@@ -72,8 +54,17 @@ const categories = [
   .grow-heading {
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
-    color: var(--color-charcoal);
+    font-weight: 600;
+    color: var(--color-ink);
+    text-align: center;
+    margin: 0 0 var(--space-xs);
+  }
+
+  .grow-subheading {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: var(--font-size-lg);
+    color: var(--color-clay);
     text-align: center;
     margin: 0 0 var(--space-xl);
   }
@@ -81,7 +72,7 @@ const categories = [
   /* ─── Card Grid ─── */
   .grow-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
   }
 
@@ -92,10 +83,10 @@ const categories = [
 
   .grow-card-image {
     width: 100%;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 5;
     border-radius: var(--border-radius);
     overflow: hidden;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
     box-shadow: 0 2px 12px rgba(110, 92, 74, 0.08);
   }
 
@@ -110,7 +101,7 @@ const categories = [
     font-family: var(--font-heading);
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     margin: 0 0 var(--space-xs);
   }
 
@@ -118,7 +109,7 @@ const categories = [
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: 1.6;
-    color: var(--color-charcoal-light);
+    color: var(--color-ink-soft);
     margin: 0;
   }
 
@@ -135,13 +126,13 @@ const categories = [
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-forest);
+    color: var(--color-moss);
     text-decoration: none;
     transition: color var(--transition);
   }
 
   .grow-link:hover {
-    color: var(--color-terracotta);
+    color: var(--color-clay);
   }
 
   .grow-link-arrow {
@@ -151,13 +142,6 @@ const categories = [
 
   .grow-link:hover .grow-link-arrow {
     transform: translateX(4px);
-  }
-
-  /* ─── Responsive: Tablet ─── */
-  @media (max-width: 1024px) {
-    .grow-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 
   /* ─── Responsive: Mobile ─── */

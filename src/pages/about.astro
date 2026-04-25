@@ -1,27 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <BaseLayout
   title="About | Moonbloom Farm"
-  description="Learn the story of Moonbloom Farm — a family flower farm in Sonoma Valley growing seasonal blooms, fresh produce, and community since 2018."
+  description="Meet Brittney Harvey and John Singleton, the family behind Moonbloom Farm — a small farm and roadside stand in Glen Ellen, growing eggs and produce in the Sonoma Valley since 2023."
 >
-  <!-- Page Hero Banner -->
-  <section class="page-hero" aria-label="About Moonbloom Farm">
-    <div class="page-hero-content">
-      <h1 class="page-hero-title">About Moonbloom Farm</h1>
-      <p class="page-hero-subtitle">A story of soil, seasons, and slow-grown beauty in the heart of Sonoma Valley.</p>
-    </div>
-  </section>
-
-  <!-- Botanical Divider -->
-  <div class="botanical-divider" aria-hidden="true">
-    <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z" fill="currentColor" opacity="0.7" />
-      <path d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z" fill="currentColor" opacity="0.7" />
-      <path d="M32 30C32 30 32 16 32 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
-    </svg>
-  </div>
+  <PageHero
+    title="About Moonbloom"
+    subtitle="A small Sonoma Valley farm and roadside stand, run by two people in their first chapter of doing this."
+  />
 
   <!-- Story Section -->
   <section class="story-section" aria-label="Our Story">
@@ -36,10 +25,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="story-text">
           <h2 class="story-heading">How It All Began</h2>
           <p class="story-description">
-            Moonbloom Farm started the way most good things do — with dirt under our fingernails and a dream we couldn't shake. In 2018, we traded city life for five sun-drenched acres in the Sonoma Valley, not entirely sure what we were doing, but certain that this was where we belonged.
+            Moonbloom started in 2023, when we set down roots on a stretch of Sonoma Valley land and got to work. What began as a backyard project — a few rows of vegetables, a small flock of chickens — has slowly grown into the roadside stand you'll find on Arnold Drive today.
           </p>
           <p class="story-description">
-            That first season, we planted dahlias, zinnias, and a whole lot of hope. Some things flourished. Some didn't. But the land was patient with us, and slowly, row by row, Moonbloom took shape — not just as a farm, but as a way of life.
+            We're still figuring it out, season by season. The land teaches us. Some weeks we have more eggs than we know what to do with; some weeks the garden runs wild. We bring what we have to the stand and try to leave it a little better than we found it.
           </p>
         </div>
       </div>
@@ -54,24 +43,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="story-text">
           <h2 class="story-heading">Our Growing Philosophy</h2>
           <p class="story-description">
-            We believe that the most beautiful flowers and the most flavorful food come from soil that's been treated with respect. Everything here is grown without synthetic pesticides or herbicides — just compost, cover crops, and a deep faith in the rhythms of nature.
+            We grow without synthetic pesticides or herbicides — just compost, cover crops, and a willingness to let the seasons set the pace. The chickens get the run of the place. The garden gets time.
           </p>
           <p class="story-description">
-            We don't force blooms out of season or rush harvests to meet demand. Instead, we follow the land's lead, growing what it wants to give us, when it's ready. The result is something you can feel the moment you hold one of our bouquets — a vitality that only comes from flowers grown in their own time.
+            What ends up at the stand is whatever the land decided to give us that week. We think it tastes better that way.
           </p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Botanical Divider -->
-  <div class="botanical-divider" aria-hidden="true">
-    <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z" fill="currentColor" opacity="0.7" />
-      <path d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z" fill="currentColor" opacity="0.7" />
-      <path d="M32 30C32 30 32 16 32 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
-    </svg>
-  </div>
 
   <!-- Values / Philosophy Section -->
   <section class="values-section" aria-label="Our Values">
@@ -90,7 +70,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           <h3 class="value-title">Sustainably Grown</h3>
           <p class="value-description">
-            No synthetic chemicals, no shortcuts. We nurture our soil with compost and cover crops, working with nature rather than against it to grow flowers and food that are truly alive.
+            No synthetic chemicals, no shortcuts. We feed the soil with compost and cover crops and let it do its work, season by season.
           </p>
         </div>
 
@@ -106,7 +86,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           <h3 class="value-title">Locally Rooted</h3>
           <p class="value-description">
-            Our roots run deep in the Sonoma Valley. We sell at local markets, partner with neighborhood florists, and believe that the best things don't need to travel far to find their people.
+            Everything we grow stays in the valley. The stand sits at the edge of our driveway in Glen Ellen — close enough that the eggs are usually still warm.
           </p>
         </div>
 
@@ -127,39 +107,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           <h3 class="value-title">Seasonally Inspired</h3>
           <p class="value-description">
-            We follow the calendar that nature writes. Spring tulips, summer dahlias, autumn chrysanthemums — each season brings its own palette, and we wouldn't have it any other way.
+            We follow the calendar that nature writes. Spring greens, summer tomatoes, fall squash — what's at the stand is whatever the season is offering, and we wouldn't have it any other way.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Botanical Divider -->
-  <div class="botanical-divider" aria-hidden="true">
-    <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z" fill="currentColor" opacity="0.7" />
-      <path d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z" fill="currentColor" opacity="0.7" />
-      <path d="M32 30C32 30 32 16 32 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
-    </svg>
-  </div>
-
-  <!-- Meet the Farmer Section -->
-  <section class="farmer-section" aria-label="Meet the Farmer">
+  <!-- Meet the Farmers Section -->
+  <section class="farmer-section" aria-label="Meet the Farmers">
     <div class="container">
       <div class="farmer-block">
         <div class="farmer-photo-wrapper">
           <div class="farmer-photo-placeholder">
-            <img src="/images/about-farmer.svg" alt="Sarah Mitchell, farmer at Moonbloom Farm" class="farmer-photo-img" loading="lazy" />
+            <img src="/images/about-farmer.svg" alt="Brittney Harvey and John Singleton at Moonbloom Farm" class="farmer-photo-img" loading="lazy" />
           </div>
         </div>
         <div class="farmer-text">
-          <h2 class="farmer-heading">Meet the Farmer</h2>
-          <p class="farmer-name">Sarah Mitchell</p>
+          <h2 class="farmer-heading">Meet the Farmers</h2>
+          <p class="farmer-name">Brittney Harvey &amp; John Singleton</p>
           <p class="farmer-bio">
-            Before there was Moonbloom, there was a woman with a well-worn copy of a seed catalog and a stubborn belief that flowers could change the way people see the world. Sarah left a career in design to get her hands in the soil, and she hasn't looked back since.
+            Brittney and John traded a busier life for a quieter one in 2023, swapping the city for a few acres in Glen Ellen and a steady rotation of small projects with feathers, leaves, and dirt.
           </p>
           <p class="farmer-bio">
-            When she's not tending rows of ranunculus or coaxing sweet peas up their trellises, you'll find her at the farm stand swapping growing tips with neighbors, or out back with the chickens — who, she'll tell you, are excellent company. Sarah's vision for Moonbloom is simple: grow beautiful things, share them generously, and leave the land a little better than she found it.
+            Moonbloom is a side-of-the-road, side-of-life kind of farm — not their day job, but where real care goes. Stop by the stand on a Friday morning and one of them will probably be there to say hello.
           </p>
         </div>
       </div>
@@ -168,55 +139,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  /* ─── Page Hero Banner ─── */
-  .page-hero {
-    position: relative;
-    min-height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: calc(-1 * (var(--space-sm) * 2 + 1.5rem * 1.2));
-    padding-top: calc(var(--space-sm) * 2 + 1.5rem * 1.2);
-    background: linear-gradient(180deg, #4a5a40 0%, #566748 100%);
-  }
-
-  .page-hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: var(--space-xl) var(--space-md);
-    max-width: 700px;
-  }
-
-  .page-hero-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 5.5vw, var(--font-size-4xl));
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--color-cream);
-    margin: 0 0 var(--space-sm);
-  }
-
-  .page-hero-subtitle {
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 2vw, var(--font-size-lg));
-    line-height: 1.6;
-    color: var(--color-cream);
-    margin: 0;
-    opacity: 0.9;
-    font-style: italic;
-  }
-
-  /* ─── Botanical Divider ─── */
-  .botanical-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: var(--space-xl) 0;
-    color: var(--color-gold);
-  }
-
   /* ─── Story Section ─── */
   .story-section {
     padding: var(--space-lg) 0 var(--space-2xl);
@@ -267,7 +189,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     margin: 0 0 var(--space-md);
   }
 
@@ -275,7 +197,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-body);
     font-size: var(--font-size-lg);
     line-height: 1.8;
-    color: var(--color-charcoal-light);
+    color: var(--color-ink-soft);
     margin: 0 0 var(--space-sm);
   }
 
@@ -285,7 +207,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ─── Values Section ─── */
   .values-section {
-    background-color: var(--color-cream-dark);
+    background-color: var(--color-paper-deep);
     padding: var(--space-2xl) 0;
   }
 
@@ -293,7 +215,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     text-align: center;
     margin: 0 0 var(--space-xl);
   }
@@ -310,7 +232,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .value-icon {
-    color: var(--color-forest);
+    color: var(--color-moss);
     margin-bottom: var(--space-md);
     display: flex;
     justify-content: center;
@@ -320,7 +242,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-heading);
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     margin: 0 0 var(--space-sm);
   }
 
@@ -328,7 +250,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: 1.7;
-    color: var(--color-charcoal-light);
+    color: var(--color-ink-soft);
     margin: 0;
   }
 
@@ -369,7 +291,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     margin: 0 0 var(--space-xs);
   }
 
@@ -377,7 +299,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-heading);
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-terracotta);
+    color: var(--color-clay);
     margin: 0 0 var(--space-md);
     font-style: italic;
   }
@@ -386,7 +308,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: var(--font-body);
     font-size: var(--font-size-lg);
     line-height: 1.8;
-    color: var(--color-charcoal-light);
+    color: var(--color-ink-soft);
     margin: 0 0 var(--space-sm);
   }
 
@@ -396,14 +318,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ─── Responsive: Tablet ─── */
   @media (max-width: 768px) {
-    .page-hero {
-      min-height: 35vh;
-    }
-
-    .page-hero-content {
-      padding: var(--space-lg) var(--space-sm);
-    }
-
     .story-block,
     .story-block--reversed {
       grid-template-columns: 1fr;
@@ -434,14 +348,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ─── Responsive: Small Mobile ─── */
   @media (max-width: 480px) {
-    .page-hero {
-      min-height: 30vh;
-    }
-
-    .page-hero-content {
-      padding: var(--space-md) var(--space-sm);
-    }
-
     .story-section,
     .farmer-section {
       padding: var(--space-sm) 0 var(--space-xl);

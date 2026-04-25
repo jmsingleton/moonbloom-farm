@@ -6,10 +6,10 @@
  */
 
 const photos = [
-  { bg: 'var(--color-cream-dark)' },
+  { bg: 'var(--color-paper-deep)' },
   { bg: 'rgba(196, 120, 91, 0.15)' },
   { bg: 'rgba(201, 169, 110, 0.18)' },
-  { bg: 'var(--color-cream-dark)' },
+  { bg: 'var(--color-paper-deep)' },
   { bg: 'rgba(196, 120, 91, 0.10)' },
   { bg: 'rgba(201, 169, 110, 0.12)' },
 ];
@@ -27,11 +27,6 @@ const photos = [
             style={`background-color: ${photo.bg};`}
             aria-hidden="true"
           >
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="placeholder-icon">
-              <path d="M16 28C16 28 12 22 7 19C2 16 1 10 1 10C1 10 7 11 11 15C14 17.8 15.5 22 16 28Z" fill="currentColor" opacity="0.4" />
-              <path d="M16 28C16 28 20 22 25 19C30 16 31 10 31 10C31 10 25 11 21 15C18 17.8 16.5 22 16 28Z" fill="currentColor" opacity="0.4" />
-              <path d="M16 28V10" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.3" />
-            </svg>
             <div class="gallery-overlay"></div>
           </div>
         </div>
@@ -57,7 +52,7 @@ const photos = [
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     text-align: center;
     margin: 0 0 var(--space-xl);
   }
@@ -179,13 +174,13 @@ const photos = [
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-forest);
+    color: var(--color-moss);
     text-decoration: none;
     transition: color var(--transition);
   }
 
   .gallery-link:hover {
-    color: var(--color-terracotta);
+    color: var(--color-clay);
   }
 
   .gallery-link-arrow {

@@ -6,8 +6,7 @@
  */
 
 const hours = [
-  { days: 'Friday - Sunday', time: '9:00 AM - 4:00 PM' },
-  { days: 'Monday - Thursday', time: 'Closed' },
+  { days: 'Friday – Sunday', time: '~8am – noon' },
 ];
 ---
 
@@ -19,12 +18,12 @@ const hours = [
         <h2 class="farm-stand-heading">Visit the Stand</h2>
 
         <address class="farm-stand-address">
-          14520 Arnold Drive<br />
+          13700 Arnold Drive<br />
           Glen Ellen, CA 95442
         </address>
 
         <div class="farm-stand-hours">
-          <h3 class="farm-stand-hours-heading">Seasonal Hours</h3>
+          <h3 class="farm-stand-hours-heading">Hours</h3>
           <dl class="farm-stand-hours-list">
             {hours.map((slot) => (
               <div class="farm-stand-hours-row">
@@ -36,8 +35,7 @@ const hours = [
         </div>
 
         <p class="farm-stand-note">
-          Our farm stand is stocked with seasonal flowers, fresh produce, eggs,
-          and curated gifts.
+          Eggs from our flock and whatever the garden is giving us that week.
         </p>
       </div>
 
@@ -61,7 +59,7 @@ const hours = [
 <style>
   /* ─── Section ─── */
   .farm-stand {
-    background-color: var(--color-forest);
+    background-color: var(--color-moss);
     padding: var(--space-2xl) 0;
   }
 
@@ -75,14 +73,14 @@ const hours = [
 
   /* ─── Left: Info ─── */
   .farm-stand-info {
-    color: var(--color-cream);
+    color: var(--color-paper);
   }
 
   .farm-stand-heading {
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
     font-weight: 700;
-    color: var(--color-cream);
+    color: var(--color-paper);
     margin: 0 0 var(--space-lg);
   }
 
@@ -91,7 +89,7 @@ const hours = [
     font-size: var(--font-size-lg);
     font-style: normal;
     line-height: 1.8;
-    color: var(--color-cream-dark);
+    color: var(--color-paper-deep);
     margin: 0 0 var(--space-lg);
   }
 
@@ -104,7 +102,7 @@ const hours = [
     font-family: var(--font-heading);
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-cream);
+    color: var(--color-paper);
     margin: 0 0 var(--space-sm);
   }
 
@@ -125,13 +123,13 @@ const hours = [
   .farm-stand-hours-days {
     font-family: var(--font-body);
     font-size: var(--font-size-base);
-    color: var(--color-cream);
+    color: var(--color-paper);
   }
 
   .farm-stand-hours-time {
     font-family: var(--font-body);
     font-size: var(--font-size-base);
-    color: var(--color-gold-light);
+    color: var(--color-brass-soft);
     margin: 0;
   }
 

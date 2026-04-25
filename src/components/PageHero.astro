@@ -1,0 +1,80 @@
+---
+import MoonbloomMark from './MoonbloomMark.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  eyebrow?: string;
+}
+
+const { title, subtitle, eyebrow } = Astro.props;
+---
+
+<header class="page-hero" aria-label={title}>
+  <span class="page-hero-mark">
+    <MoonbloomMark size={36} />
+  </span>
+  {eyebrow && <p class="page-hero-eyebrow">{eyebrow}</p>}
+  <h1 class="page-hero-title">{title}</h1>
+  <p class="page-hero-subtitle">{subtitle}</p>
+</header>
+
+<style>
+  .page-hero {
+    position: relative;
+    text-align: center;
+    padding: clamp(var(--space-xl), 9vw, var(--space-2xl)) var(--space-md) var(--space-xl);
+    border-bottom: 1px solid rgba(46, 61, 47, 0.12);
+  }
+
+  .page-hero-mark {
+    display: inline-flex;
+    color: var(--color-brass);
+    margin-bottom: var(--space-md);
+    opacity: 0.9;
+  }
+
+  .page-hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-clay);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .page-hero-title {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    margin: 0 auto;
+    max-width: 18ch;
+    text-wrap: balance;
+  }
+
+  .page-hero-subtitle {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-variation-settings: 'opsz' 18, 'SOFT' 50;
+    font-size: clamp(1.05rem, 2vw, 1.45rem);
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+    max-width: 38ch;
+    margin: var(--space-md) auto 0;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      padding: var(--space-xl) var(--space-sm) var(--space-lg);
+    }
+
+    .page-hero-mark {
+      margin-bottom: var(--space-sm);
+    }
+  }
+</style>

@@ -1,41 +1,7 @@
 ---
-/**
- * AboutPreview — "Our Story" preview section for the homepage.
- * Two-column layout with photo placeholder and introductory text.
- * Includes a botanical leaf divider at the top.
- */
 ---
 
 <section class="about-preview" aria-label="About Moonbloom Farm">
-  <!-- Botanical divider -->
-  <div class="botanical-divider" aria-hidden="true">
-    <svg
-      width="64"
-      height="32"
-      viewBox="0 0 64 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M32 30C32 30 24 22 14 18C4 14 2 6 2 6C2 6 12 8 20 14C26 18.5 30 24 32 30Z"
-        fill="currentColor"
-        opacity="0.7"
-      />
-      <path
-        d="M32 30C32 30 40 22 50 18C60 14 62 6 62 6C62 6 52 8 44 14C38 18.5 34 24 32 30Z"
-        fill="currentColor"
-        opacity="0.7"
-      />
-      <path
-        d="M32 30C32 30 32 16 32 2"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        opacity="0.5"
-      />
-    </svg>
-  </div>
-
   <div class="about-preview-inner container">
     <div class="about-preview-grid">
       <!-- Photo placeholder -->
@@ -49,10 +15,9 @@
       <div class="about-text">
         <h2 class="about-heading">Our Story</h2>
         <p class="about-description">
-          Nestled in the heart of Sonoma Valley, Moonbloom Farm is a labor of love.
-          We grow seasonal flowers and food with care, raise happy chickens, and curate
-          beautiful things for your home. What began as a small garden has blossomed into
-          a place where community and nature meet.
+          Grown with love in the Valley of the Moon. Deep in the heart of Glen Ellen.
+          We grow seasonal produce and food with care, raise happy chickens, and curate
+          delicious things from our kitchen.
         </p>
         <a href="/about" class="about-link">
           Learn More <span class="about-link-arrow" aria-hidden="true">&rarr;</span>
@@ -66,15 +31,6 @@
   /* ─── Section ─── */
   .about-preview {
     padding: var(--space-2xl) 0;
-  }
-
-  /* ─── Botanical Divider ─── */
-  .botanical-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-xl);
-    color: var(--color-gold);
   }
 
   /* ─── Grid Layout ─── */
@@ -116,7 +72,7 @@
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     margin: 0 0 var(--space-md);
   }
 
@@ -124,7 +80,7 @@
     font-family: var(--font-body);
     font-size: var(--font-size-lg);
     line-height: 1.8;
-    color: var(--color-charcoal-light);
+    color: var(--color-ink-soft);
     margin: 0 0 var(--space-lg);
   }
 
@@ -136,13 +92,13 @@
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-forest);
+    color: var(--color-moss);
     text-decoration: none;
     transition: color var(--transition);
   }
 
   .about-link:hover {
-    color: var(--color-terracotta);
+    color: var(--color-clay);
   }
 
   .about-link-arrow {

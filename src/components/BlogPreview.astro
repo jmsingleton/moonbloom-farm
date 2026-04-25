@@ -14,6 +14,7 @@ const allPosts = (await getCollection('blog')).sort(
 const posts = allPosts.slice(0, 3);
 ---
 
+{posts.length > 0 && (
 <section class="blog-preview" aria-label="From the Field — Blog">
   <div class="blog-preview-inner container">
     <h2 class="blog-heading">From the Field</h2>
@@ -27,13 +28,7 @@ const posts = allPosts.slice(0, 3);
         });
         return (
           <article class="blog-card">
-            <div class="blog-card-image" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="placeholder-icon">
-                <path d="M16 28C16 28 12 22 7 19C2 16 1 10 1 10C1 10 7 11 11 15C14 17.8 15.5 22 16 28Z" fill="currentColor" opacity="0.4" />
-                <path d="M16 28C16 28 20 22 25 19C30 16 31 10 31 10C31 10 25 11 21 15C18 17.8 16.5 22 16 28Z" fill="currentColor" opacity="0.4" />
-                <path d="M16 28V10" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.3" />
-              </svg>
-            </div>
+            <div class="blog-card-image" aria-hidden="true"></div>
             <div class="blog-card-body">
               <time class="blog-card-date" datetime={post.data.date.toISOString()}>
                 {formattedDate}
@@ -56,11 +51,12 @@ const posts = allPosts.slice(0, 3);
     </div>
   </div>
 </section>
+)}
 
 <style>
   /* ─── Section ─── */
   .blog-preview {
-    background-color: var(--color-cream-dark);
+    background-color: var(--color-paper-deep);
     padding: var(--space-2xl) 0;
   }
 
@@ -69,7 +65,7 @@ const posts = allPosts.slice(0, 3);
     font-family: var(--font-heading);
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     text-align: center;
     margin: 0 0 var(--space-xl);
   }
@@ -83,7 +79,7 @@ const posts = allPosts.slice(0, 3);
 
   /* ─── Card ─── */
   .blog-card {
-    background-color: var(--color-cream);
+    background-color: var(--color-paper);
     border-radius: var(--border-radius);
     box-shadow: 0 2px 12px rgba(110, 92, 74, 0.08);
     border: 1px solid rgba(110, 92, 74, 0.08);
@@ -102,7 +98,7 @@ const posts = allPosts.slice(0, 3);
   .blog-card-image {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background-color: var(--color-cream-dark);
+    background-color: var(--color-paper-deep);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,7 +115,7 @@ const posts = allPosts.slice(0, 3);
   .blog-card-date {
     font-family: var(--font-body);
     font-size: var(--font-size-sm);
-    color: var(--color-charcoal-light);
+    color: var(--color-ink-soft);
     opacity: 0.7;
   }
 
@@ -127,7 +123,7 @@ const posts = allPosts.slice(0, 3);
     font-family: var(--font-heading);
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     margin: 0;
   }
 
@@ -135,7 +131,7 @@ const posts = allPosts.slice(0, 3);
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: 1.6;
-    color: var(--color-charcoal-light);
+    color: var(--color-ink-soft);
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -152,14 +148,14 @@ const posts = allPosts.slice(0, 3);
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-forest);
+    color: var(--color-moss);
     text-decoration: none;
     margin-top: var(--space-xs);
     transition: color var(--transition);
   }
 
   .blog-card-link:hover {
-    color: var(--color-terracotta);
+    color: var(--color-clay);
   }
 
   .blog-card-link-arrow {
@@ -184,13 +180,13 @@ const posts = allPosts.slice(0, 3);
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-forest);
+    color: var(--color-moss);
     text-decoration: none;
     transition: color var(--transition);
   }
 
   .blog-link:hover {
-    color: var(--color-terracotta);
+    color: var(--color-clay);
   }
 
   .blog-link-arrow {

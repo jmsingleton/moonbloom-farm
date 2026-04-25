@@ -2,7 +2,7 @@
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/what-we-grow', label: 'What We Grow' },
+  { href: '/what-we-sell', label: 'What We Sell' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/blog', label: 'Journal' },
   { href: '/contact', label: 'Visit' },
@@ -256,56 +256,46 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const header = document.getElementById('site-header');
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileNav = document.getElementById('mobile-nav');
+  const header = document.getElementById('site-header');
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
 
-    if (!header || !hamburgerBtn || !mobileNav) return;
-
-    function onScroll() {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }
+  if (header && hamburgerBtn && mobileNav) {
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    };
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    function openMenu() {
+    const openMenu = () => {
       hamburgerBtn.classList.add('open');
       mobileNav.classList.add('open');
       hamburgerBtn.setAttribute('aria-expanded', 'true');
       mobileNav.setAttribute('aria-hidden', 'false');
       hamburgerBtn.setAttribute('aria-label', 'Close menu');
       document.body.style.overflow = 'hidden';
-    }
+    };
 
-    function closeMenu() {
+    const closeMenu = () => {
       hamburgerBtn.classList.remove('open');
       mobileNav.classList.remove('open');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
       mobileNav.setAttribute('aria-hidden', 'true');
       hamburgerBtn.setAttribute('aria-label', 'Open menu');
       document.body.style.overflow = '';
-    }
+    };
 
     hamburgerBtn.addEventListener('click', () => {
-      const isOpen = hamburgerBtn.classList.contains('open');
-      if (isOpen) {
+      if (hamburgerBtn.classList.contains('open')) {
         closeMenu();
       } else {
         openMenu();
       }
     });
 
-    const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link');
-    mobileLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
+    mobileNav.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', closeMenu);
     });
 
     document.addEventListener('keydown', (e) => {
@@ -314,5 +304,5 @@ const currentPath = Astro.url.pathname;
         hamburgerBtn.focus();
       }
     });
-  });
+  }
 </script>
