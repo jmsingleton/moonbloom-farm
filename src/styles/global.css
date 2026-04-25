@@ -52,9 +52,12 @@ body {
   color: var(--color-ink);
   background-color: var(--color-paper);
   background-image:
+    url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
     radial-gradient(circle at 15% 10%, rgba(201, 169, 106, 0.16), transparent 35%),
     radial-gradient(circle at 82% 24%, rgba(46, 61, 47, 0.1), transparent 34%),
     linear-gradient(180deg, #f8f5ee 0%, #f4f1e8 40%, #ede6d8 100%);
+  background-size: 220px 220px, auto, auto, auto;
+  background-attachment: fixed, fixed, fixed, fixed;
 }
 
 h1,

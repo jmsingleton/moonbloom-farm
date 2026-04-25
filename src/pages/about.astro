@@ -56,58 +56,29 @@ import PageHero from '../components/PageHero.astro';
   <!-- Values / Philosophy Section -->
   <section class="values-section" aria-label="Our Values">
     <div class="container">
-      <h2 class="values-heading">What We Stand For</h2>
+      <p class="values-eyebrow">A few things we believe</p>
       <div class="values-grid">
-        <!-- Sustainably Grown -->
         <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 44C24 44 8 34 8 20C8 12 14 6 22 6C24 6 24 8 24 8C24 8 24 6 26 6C34 6 40 12 40 20C40 34 24 44 24 44Z" stroke="currentColor" stroke-width="2" fill="none" />
-              <path d="M24 44V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M24 28C24 28 18 24 16 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" />
-              <path d="M24 22C24 22 30 18 32 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" />
-            </svg>
-          </div>
+          <span class="value-number" aria-hidden="true">01</span>
           <h3 class="value-title">Sustainably Grown</h3>
           <p class="value-description">
             No synthetic chemicals, no shortcuts. We feed the soil with compost and cover crops and let it do its work, season by season.
           </p>
         </div>
 
-        <!-- Locally Rooted -->
         <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 4C16.268 4 10 10.268 10 18C10 28 24 44 24 44C24 44 38 28 38 18C38 10.268 31.732 4 24 4Z" stroke="currentColor" stroke-width="2" fill="none" />
-              <circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="2" fill="none" />
-              <path d="M24 15V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M21 18H27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </div>
+          <span class="value-number" aria-hidden="true">02</span>
           <h3 class="value-title">Locally Rooted</h3>
           <p class="value-description">
             Everything we grow stays in the valley. The stand sits at the edge of our driveway in Glen Ellen — close enough that the eggs are usually still warm.
           </p>
         </div>
 
-        <!-- Seasonally Inspired -->
         <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2" fill="none" />
-              <line x1="24" y1="4" x2="24" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <line x1="24" y1="36" x2="24" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <line x1="4" y1="24" x2="12" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <line x1="36" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <line x1="9.86" y1="9.86" x2="15.52" y2="15.52" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <line x1="32.48" y1="32.48" x2="38.14" y2="38.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <line x1="9.86" y1="38.14" x2="15.52" y2="32.48" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <line x1="32.48" y1="15.52" x2="38.14" y2="9.86" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
+          <span class="value-number" aria-hidden="true">03</span>
           <h3 class="value-title">Seasonally Inspired</h3>
           <p class="value-description">
-            We follow the calendar that nature writes. Spring greens, summer tomatoes, fall squash — what's at the stand is whatever the season is offering, and we wouldn't have it any other way.
+            We follow the calendar that nature writes. Spring greens, summer tomatoes, fall squash — what is at the stand is whatever the season is offering, and we wouldn't have it any other way.
           </p>
         </div>
       </div>
@@ -211,11 +182,11 @@ import PageHero from '../components/PageHero.astro';
     padding: var(--space-2xl) 0;
   }
 
-  .values-heading {
+  .values-eyebrow {
     font-family: var(--font-heading);
-    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
-    color: var(--color-ink);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--color-clay);
     text-align: center;
     margin: 0 0 var(--space-xl);
   }
@@ -227,23 +198,32 @@ import PageHero from '../components/PageHero.astro';
   }
 
   .value-card {
-    text-align: center;
-    padding: var(--space-lg) var(--space-md);
+    text-align: left;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(46, 61, 47, 0.18);
   }
 
-  .value-icon {
-    color: var(--color-moss);
-    margin-bottom: var(--space-md);
-    display: flex;
-    justify-content: center;
+  .value-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+    line-height: 1;
+    color: var(--color-brass);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
   }
 
   .value-title {
     font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 24, 'SOFT' 30;
     font-size: var(--font-size-xl);
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-ink);
     margin: 0 0 var(--space-sm);
+    letter-spacing: -0.005em;
   }
 
   .value-description {
@@ -332,7 +312,7 @@ import PageHero from '../components/PageHero.astro';
 
     .values-grid {
       grid-template-columns: 1fr;
-      gap: var(--space-lg);
+      gap: var(--space-xl);
     }
 
     .farmer-block {
