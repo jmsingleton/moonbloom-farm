@@ -1,4 +1,6 @@
 ---
+import MoonbloomMark from './MoonbloomMark.astro';
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
@@ -55,6 +57,9 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <span class="mobile-nav-mark" aria-hidden="true">
+    <MoonbloomMark size={48} />
+  </span>
   <nav aria-label="Mobile navigation">
     <ul class="mobile-nav-list">
       {navLinks.map((link) => {
@@ -205,13 +210,20 @@ const currentPath = Astro.url.pathname;
       linear-gradient(130deg, rgba(25, 35, 26, 0.96), rgba(55, 44, 36, 0.96)),
       radial-gradient(circle at 20% 20%, rgba(185, 148, 79, 0.25), transparent 42%);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: var(--space-xl);
     z-index: 105;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-14px);
     transition: opacity 300ms ease, transform 300ms ease, visibility 300ms ease;
+  }
+
+  .mobile-nav-mark {
+    color: var(--color-brass-soft);
+    opacity: 0.85;
   }
 
   .mobile-nav.open {

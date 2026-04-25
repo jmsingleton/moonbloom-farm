@@ -14,6 +14,7 @@
       <!-- Text content -->
       <div class="about-text">
         <h2 class="about-heading">Our Story</h2>
+        <p class="about-deck">From a side project to a stand.</p>
         <p class="about-description">
           A small farm and roadside stand on Arnold Drive in Glen Ellen. Eggs from our flock, produce from the garden, and baked goods from the kitchen — what we have, when we have it.
         </p>
@@ -68,9 +69,19 @@
 
   .about-heading {
     font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-ink);
+    margin: 0 0 var(--space-xs);
+    letter-spacing: -0.005em;
+  }
+
+  .about-deck {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: var(--font-size-lg);
+    color: var(--color-clay);
     margin: 0 0 var(--space-md);
   }
 

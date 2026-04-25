@@ -18,6 +18,7 @@ const photos = [
 <section class="gallery-preview" aria-label="Life at the Farm">
   <div class="gallery-preview-inner container">
     <h2 class="gallery-heading">Life at the Farm</h2>
+    <p class="gallery-deck">A scrapbook of ordinary days.</p>
 
     <div class="gallery-grid">
       {photos.map((photo, i) => (
@@ -50,9 +51,20 @@ const photos = [
   /* ─── Heading ─── */
   .gallery-heading {
     font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-ink);
+    text-align: center;
+    margin: 0 0 var(--space-xs);
+    letter-spacing: -0.005em;
+  }
+
+  .gallery-deck {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: var(--font-size-lg);
+    color: var(--color-clay);
     text-align: center;
     margin: 0 0 var(--space-xl);
   }
