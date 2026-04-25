@@ -28,9 +28,16 @@ import PageHero from '../components/PageHero.astro';
             Moonbloom started in 2023, when we set down roots on a stretch of Sonoma Valley land and got to work. What began as a backyard project — a few rows of vegetables, a small flock of chickens — has slowly grown into the roadside stand you'll find on Arnold Drive today.
           </p>
           <p class="story-description">
-            We're still figuring it out, season by season. The land teaches us. Some weeks we have more eggs than we know what to do with; some weeks the garden runs wild. We bring what we have to the stand and try to leave it a little better than we found it.
+            We're still figuring it out, season by season. Some weeks we have more eggs than we know what to do with; some weeks the garden runs wild. We bring what we have to the stand and try to leave it a little better than we found it.
           </p>
         </div>
+      </div>
+
+      <!-- Pull quote -->
+      <div class="story-pullquote">
+        <blockquote class="story-pullquote-text">
+          The land teaches us.
+        </blockquote>
       </div>
 
       <!-- Block 2: Text left, photo right -->
@@ -113,6 +120,26 @@ import PageHero from '../components/PageHero.astro';
   /* ─── Story Section ─── */
   .story-section {
     padding: var(--space-lg) 0 var(--space-2xl);
+  }
+
+  /* ─── Story Pull Quote ─── */
+  .story-pullquote {
+    text-align: center;
+    margin: var(--space-2xl) auto;
+    max-width: 22ch;
+    padding: 0 var(--space-md);
+  }
+
+  .story-pullquote-text {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-weight: 300;
+    font-size: clamp(2.6rem, 7vw, var(--font-size-display));
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--color-clay);
   }
 
   .story-block {
