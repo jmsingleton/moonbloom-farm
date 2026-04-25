@@ -76,7 +76,7 @@ import PageHero from '../components/PageHero.astro';
     <div class="container">
       <div class="signup-inner">
         <h2 class="signup-heading">Stay in the Loop</h2>
-        <p class="signup-subtitle">Sign up for seasonal updates, farm stand specials, and more.</p>
+        <p class="signup-subtitle">Field notes and farm stand updates, when there is something to share.</p>
 
         <form
           name="contact-signup"
@@ -137,10 +137,12 @@ import PageHero from '../components/PageHero.astro';
 
   .contact-heading {
     font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-ink);
     margin: 0;
+    letter-spacing: -0.005em;
   }
 
   .contact-address {
@@ -155,13 +157,15 @@ import PageHero from '../components/PageHero.astro';
     color: var(--color-ink-soft);
   }
 
-  /* ─── Seasonal Hours ─── */
+  /* ─── Hours ─── */
   .hours-label {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    color: var(--color-ink);
-    margin: 0 0 var(--space-xs);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-clay);
+    margin: 0 0 var(--space-sm);
   }
 
   .hours-list {
@@ -283,17 +287,20 @@ import PageHero from '../components/PageHero.astro';
 
   .signup-heading {
     font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-ink);
     margin: 0 0 var(--space-xs);
+    letter-spacing: -0.005em;
   }
 
   .signup-subtitle {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
+    font-style: italic;
     font-size: var(--font-size-lg);
-    line-height: 1.6;
-    color: var(--color-ink-soft);
+    line-height: 1.5;
+    color: var(--color-clay);
     margin: 0 0 var(--space-lg);
   }
 
