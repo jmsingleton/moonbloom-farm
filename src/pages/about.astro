@@ -185,10 +185,12 @@ import PageHero from '../components/PageHero.astro';
 
   .story-heading {
     font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-ink);
     margin: 0 0 var(--space-md);
+    letter-spacing: -0.005em;
   }
 
   .story-description {
@@ -296,19 +298,21 @@ import PageHero from '../components/PageHero.astro';
 
   .farmer-heading {
     font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
     font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-ink);
     margin: 0 0 var(--space-xs);
+    letter-spacing: -0.005em;
   }
 
   .farmer-name {
     font-family: var(--font-heading);
+    font-style: italic;
     font-size: var(--font-size-xl);
-    font-weight: 700;
+    font-weight: 400;
     color: var(--color-clay);
     margin: 0 0 var(--space-md);
-    font-style: italic;
   }
 
   .farmer-bio {
