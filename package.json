@@ -9,9 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^5.17.1"
   },
   "devDependencies": {
-    "netlify-cli": "^23.15.1"
+    "@resvg/resvg-js": "^2.6.2",
+    "netlify-cli": "^23.15.1",
+    "png-to-ico": "^3.0.1"
   }
 }
