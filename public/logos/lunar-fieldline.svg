@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Moonbloom Farms - Lunar Fieldline</title>
+  <desc id="desc">Half moon over valley field lines and bloom with grounded serif wordmark.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M62 172a86 86 0 0 1 172 0" stroke-width="7"/>
+    <path d="M34 204c42-18 82-18 122 0" stroke-width="5"/>
+    <path d="M26 226c58-24 114-24 170 0" stroke-width="5"/>
+    <path d="M20 250c74-31 145-31 214 0" stroke-width="5"/>
+    <path d="M150 182v72" stroke-width="6"/>
+    <circle cx="150" cy="166" r="18" stroke-width="6"/>
+    <path d="M150 150v32M134 166h32" stroke-width="4"/>
+  </g>
+  <text x="290" y="164" font-family="Fraunces, Georgia, serif" font-size="82" font-weight="620" letter-spacing="1" fill="currentColor">MOONBLOOM</text>
+  <text x="292" y="226" font-family="'Plus Jakarta Sans', 'Avenir Next', sans-serif" font-size="29" font-weight="700" letter-spacing="11" fill="currentColor">FARMS</text>
+</svg>

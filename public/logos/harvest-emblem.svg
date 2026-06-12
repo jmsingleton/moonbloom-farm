@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Moonbloom Farms - Harvest Emblem</title>
+  <desc id="desc">Shield emblem with moon arc and central flower for strong signage presence.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M38 86h190v132c0 64-48 110-95 132c-47-22-95-68-95-132z" stroke-width="7"/>
+    <path d="M82 136a52 52 0 0 1 104 0" stroke-width="5"/>
+    <circle cx="134" cy="188" r="20" stroke-width="6"/>
+    <path d="M134 168v40M114 188h40" stroke-width="4"/>
+    <path d="M134 208v56" stroke-width="5"/>
+  </g>
+  <text x="274" y="164" font-family="Fraunces, Georgia, serif" font-size="84" font-weight="620" letter-spacing="1.4" fill="currentColor">MOONBLOOM</text>
+  <text x="276" y="226" font-family="'Plus Jakarta Sans', 'Avenir Next', sans-serif" font-size="28" font-weight="700" letter-spacing="11" fill="currentColor">FARMS</text>
+</svg>

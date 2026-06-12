@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const concepts = [
+  {
+    slug: 'moonstem-crest',
+    name: 'Moonstem Crest',
+    note: 'Crescent cradling a bloom. Premium and timeless.',
+  },
+  {
+    slug: 'lunar-fieldline',
+    name: 'Lunar Fieldline',
+    note: 'Moon over field contours with grounded bloom anchor.',
+  },
+  {
+    slug: 'moonbloom-monoline',
+    name: 'Moonbloom Monoline',
+    note: 'Minimal geometric intersection; highly scalable.',
+  },
+  {
+    slug: 'harvest-emblem',
+    name: 'Harvest Emblem',
+    note: 'Badge-style symbol for signage and packaging authority.',
+  },
+  {
+    slug: 'nocturne-botanical',
+    name: 'Nocturne Botanical',
+    note: 'Poetic night-bloom expression with moon-driven story.',
+  },
+];
+---
+
+<BaseLayout
+  title="Logo Concepts | Moonbloom Farm"
+  description="First-round logo directions for Moonbloom Farm."
+>
+  <section class="concepts">
+    <div class="container">
+      <p class="eyebrow">Identity Exploration</p>
+      <h1>Moonbloom Farm Logo Concepts</h1>
+      <p class="intro">First-round marks built for website header, packaging, and signage. Every concept includes one-color viability.</p>
+
+      <div class="grid">
+        {concepts.map((concept, i) => (
+          <article class="card">
+            <header class="card-head">
+              <p class="index">0{i + 1}</p>
+              <h2>{concept.name}</h2>
+              <p>{concept.note}</p>
+            </header>
+
+            <div class="preview preview--light">
+              <img src={`/logos/${concept.slug}.svg`} alt={`${concept.name} logo on light`} />
+            </div>
+
+            <div class="preview preview--dark">
+              <img src={`/logos/${concept.slug}.svg`} alt={`${concept.name} logo on dark`} />
+            </div>
+
+            <div class="chip-row" aria-label="Use cases">
+              <span>Header</span>
+              <span>Packaging</span>
+              <span>Signage</span>
+              <span>1-color</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .concepts {
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--color-clay);
+  }
+
+  h1 {
+    margin: 0.35rem 0 0;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+  }
+
+  .intro {
+    max-width: 62ch;
+    margin: 0.9rem 0 0;
+    color: var(--color-ink-soft);
+  }
+
+  .grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    gap: 1rem;
+  }
+
+  .card {
+    border: 1px solid rgba(29, 25, 22, 0.16);
+    background: rgba(255, 255, 255, 0.45);
+    padding: 1rem;
+  }
+
+  .card-head h2 {
+    margin: 0.2rem 0;
+    font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  }
+
+  .card-head p {
+    margin: 0;
+    color: var(--color-ink-soft);
+  }
+
+  .index {
+    margin: 0;
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    color: var(--color-clay);
+  }
+
+  .preview {
+    margin-top: 0.85rem;
+    border: 1px solid rgba(29, 25, 22, 0.14);
+    padding: 0.8rem;
+  }
+
+  .preview img {
+    width: 100%;
+    height: auto;
+    color: #1d1916;
+  }
+
+  .preview--light {
+    background: #f3ede1;
+  }
+
+  .preview--dark {
+    background: linear-gradient(120deg, #252f27, #2f2a24);
+  }
+
+  .preview--dark img {
+    color: #f3ede1;
+  }
+
+  .chip-row {
+    margin-top: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .chip-row span {
+    border: 1px solid rgba(29, 25, 22, 0.2);
+    padding: 0.2rem 0.45rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .card:nth-child(5) {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

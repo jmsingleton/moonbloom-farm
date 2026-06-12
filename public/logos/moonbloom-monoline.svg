@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Moonbloom Farms - Moonbloom Monoline</title>
+  <desc id="desc">Minimal moon and flower intersection with refined modern-rustic wordmark.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="128" cy="160" r="64" stroke-width="8"/>
+    <path d="M106 108a64 64 0 1 1 0 104" stroke-width="12"/>
+    <path d="M128 160m-26 0a26 26 0 1 0 52 0a26 26 0 1 0-52 0" stroke-width="6"/>
+    <path d="M128 134v52M102 160h52" stroke-width="4.5"/>
+    <path d="M128 186v56" stroke-width="6"/>
+  </g>
+  <text x="246" y="168" font-family="Fraunces, Georgia, serif" font-size="84" font-weight="620" letter-spacing="1.2" fill="currentColor">MOONBLOOM</text>
+  <text x="248" y="228" font-family="'Plus Jakarta Sans', 'Avenir Next', sans-serif" font-size="27" font-weight="700" letter-spacing="11" fill="currentColor">FARMS</text>
+</svg>
