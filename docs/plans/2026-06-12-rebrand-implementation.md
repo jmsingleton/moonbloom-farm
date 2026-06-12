@@ -12,7 +12,7 @@
 
 **Voice rules (apply to ALL copy in every task):** display lines lowercase; body text normally capitalized; keep hedges ("8ish", "when we can", "when the girls are laying", "when the oven is on"); no superlatives; never mention flowers as a product. Browser titles lowercase.
 
-**⚠ Open item:** Production domain assumed `https://moonbloomfarms.com` (from existing robots.txt). If John confirms `moonbloom.farm` instead, change it in Task 5 (astro.config.mjs + robots.txt) only — everything else derives from `Astro.site`.
+**Domain (confirmed by John 2026-06-12):** production is `https://moonbloom.farm`. The old robots.txt value (`moonbloomfarms.com`) was stale. Everything derives from `Astro.site`.
 
 ---
 
@@ -365,7 +365,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://moonbloomfarms.com',
+  site: 'https://moonbloom.farm',
   integrations: [sitemap()],
 });
 ```
@@ -461,7 +461,7 @@ const business = {
 User-agent: *
 Allow: /
 
-Sitemap: https://moonbloomfarms.com/sitemap-index.xml
+Sitemap: https://moonbloom.farm/sitemap-index.xml
 ```
 
 **Step 4: Replace `public/_redirects`:**
