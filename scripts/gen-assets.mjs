@@ -1,6 +1,6 @@
 import { Resvg } from '@resvg/resvg-js';
 import pngToIco from 'png-to-ico';
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 
 const fonts = {
   loadSystemFonts: false,
@@ -10,6 +10,14 @@ const fonts = {
   ],
   defaultFontFamily: 'Archivo',
 };
+
+// resvg silently falls back when a fontFile is missing — fail loud instead so a
+// renamed/moved font can never ship a wrong-but-plausible asset.
+for (const f of fonts.fontFiles) {
+  await access(f).catch(() => {
+    throw new Error(`Missing brand font: ${f} — fix the path before regenerating assets.`);
+  });
+}
 
 async function renderPng(svgPath, outPath, width) {
   const svg = await readFile(svgPath, 'utf8');
