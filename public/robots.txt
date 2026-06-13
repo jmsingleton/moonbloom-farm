@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://moonbloomfarms.com/sitemap.xml
+
+Sitemap: https://moonbloom.farm/sitemap-index.xml
