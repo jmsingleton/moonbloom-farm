@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="#14342B">
+  <!-- KEEP IN SYNC with src/components/StampBadge.astro (inline twin for webfont ring text). This file feeds the print-stamp raster. -->
   <defs>
     <path id="mb-arc-top" d="M 49 161 A 82 82 0 1 1 191 161"/>
     <path id="mb-arc-bottom" d="M 24 120 A 96 96 0 0 0 216 120"/>

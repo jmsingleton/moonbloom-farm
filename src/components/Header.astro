@@ -184,6 +184,10 @@ const currentPath = Astro.url.pathname;
     .hamburger { display: flex; }
   }
 
+  @media (min-width: 761px) {
+    .mobile-nav { display: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .mobile-nav, .hamburger-line { transition: none; }
   }
@@ -194,6 +198,9 @@ const currentPath = Astro.url.pathname;
   const mobileNav = document.getElementById('mobile-nav');
 
   if (hamburgerBtn && mobileNav) {
+    const pageMain = document.querySelector('main');
+    const pageFooter = document.querySelector('footer');
+
     const openMenu = () => {
       hamburgerBtn.classList.add('open');
       mobileNav.classList.add('open');
@@ -201,6 +208,8 @@ const currentPath = Astro.url.pathname;
       mobileNav.setAttribute('aria-hidden', 'false');
       hamburgerBtn.setAttribute('aria-label', 'Close menu');
       document.body.style.overflow = 'hidden';
+      pageMain?.setAttribute('inert', '');
+      pageFooter?.setAttribute('inert', '');
     };
 
     const closeMenu = () => {
@@ -210,6 +219,8 @@ const currentPath = Astro.url.pathname;
       mobileNav.setAttribute('aria-hidden', 'true');
       hamburgerBtn.setAttribute('aria-label', 'Open menu');
       document.body.style.overflow = '';
+      pageMain?.removeAttribute('inert');
+      pageFooter?.removeAttribute('inert');
     };
 
     hamburgerBtn.addEventListener('click', () => {
@@ -226,5 +237,11 @@ const currentPath = Astro.url.pathname;
         hamburgerBtn.focus();
       }
     });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 760 && hamburgerBtn.classList.contains('open')) {
+        closeMenu();
+      }
+    }, { passive: true });
   }
 </script>

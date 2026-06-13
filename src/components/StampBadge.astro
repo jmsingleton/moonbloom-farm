@@ -9,6 +9,7 @@ const { size = 230, class: className } = Astro.props;
 
 {/* Inline (not <img>) so the curved Archivo ring text uses the page webfont.
     Internal ids are static — use at most once per page. */}
+<!-- Geometry duplicated from public/logos/moonbloom-badge.svg — KEEP IN SYNC. The .svg feeds the print-stamp raster (Task 12); this inline copy lets the Archivo ring text use the page webfont. -->
 <svg
   width={size}
   height={size}
