@@ -125,6 +125,10 @@ const formattedDate = entry.data.date.toLocaleDateString('en-US', {
     color: var(--ink);
   }
 
+  /* Intentional: prose h2 shares --text-display-sm with .post-title above.
+     Site-wide h2 is display-sm; the post title is set down to that size too
+     (it's distinguished by the centered date eyebrow, not by being larger).
+     Don't "fix" the parity by shrinking h2 — it would collide h3/h4. */
   .prose :global(h2) {
     font-size: var(--text-display-sm);
     margin-top: var(--space-xl);
