@@ -48,9 +48,11 @@ ground (lilac) is reserved for later.
 
 ## Type
 
-**One family: Archivo** (Google Fonts, variable: width 62–125, weight 100–900).
-Loaded once in `BaseLayout` as a single request. No serif. No italic. No second
-typeface.
+**One family: Archivo** (Google Fonts, variable: width 62–125, weight 100–900
+available). Loaded once in `BaseLayout` as a single request. No serif. No
+italic. No second typeface. The system uses only **two width stops — 100 (body)
+and 125 (display)**; the rest of the axis exists but is off-system, so don't
+reach for intermediate widths.
 
 | Voice | Width | Weight | Casing | Use |
 | --- | --- | --- | --- | --- |
