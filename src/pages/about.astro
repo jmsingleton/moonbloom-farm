@@ -1,375 +1,180 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
+import MoonDivider from '../components/MoonDivider.astro';
 ---
 
 <BaseLayout
-  title="About | Moonbloom Farm"
+  title="about — moonbloom farm"
   description="Meet Brittney Harvey and John Singleton, the family behind Moonbloom Farm — a small farm and roadside stand in Glen Ellen, growing eggs and produce in the Sonoma Valley since 2023."
 >
-  <PageHero
-    title="About Moonbloom"
-    subtitle="A small Sonoma Valley farm and roadside stand, run by two people in their first chapter of doing this."
-  />
-
-  <!-- Story Section -->
-  <section class="story-section" aria-label="Our Story">
+  <section class="about-hero">
     <div class="container">
-      <!-- Block 1: Photo left, text right -->
-      <div class="story-block">
-        <div class="story-photo-wrapper">
-          <div class="story-photo-placeholder">
-            <img src="/images/about-farm.svg" alt="Moonbloom Farm fields" class="story-photo-img" loading="lazy" />
-          </div>
-        </div>
-        <div class="story-text">
-          <h2 class="story-heading">How It All Began</h2>
-          <p class="story-description">
-            Moonbloom started in 2023, when we set down roots on a stretch of Sonoma Valley land and got to work. What began as a backyard project — a few rows of vegetables, a small flock of chickens — has slowly grown into the roadside stand you'll find on Arnold Drive today.
-          </p>
-          <p class="story-description">
-            We're still figuring it out, season by season. Some weeks we have more eggs than we know what to do with; some weeks the garden runs wild. We bring what we have to the stand and try to leave it a little better than we found it.
-          </p>
-        </div>
-      </div>
-
-      <!-- Pull quote -->
-      <div class="story-pullquote">
-        <blockquote class="story-pullquote-text">
-          The land teaches us.
-        </blockquote>
-      </div>
-
-      <!-- Block 2: Text left, photo right -->
-      <div class="story-block story-block--reversed">
-        <div class="story-photo-wrapper">
-          <div class="story-photo-placeholder">
-            <img src="/images/placeholder-flowers.svg" alt="Growing philosophy at Moonbloom Farm" class="story-photo-img" loading="lazy" />
-          </div>
-        </div>
-        <div class="story-text">
-          <h2 class="story-heading">Our Growing Philosophy</h2>
-          <p class="story-description">
-            We grow without synthetic pesticides or herbicides — just compost, cover crops, and a willingness to let the seasons set the pace. The chickens get the run of the place. The garden gets time.
-          </p>
-          <p class="story-description">
-            What ends up at the stand is whatever the land decided to give us that week. We think it tastes better that way.
-          </p>
-        </div>
-      </div>
+      <h1>two people,<br />a flock, a garden.</h1>
+      <p class="about-hero-sub">A small Sonoma Valley farm and roadside stand, run by two people in their first chapter of doing this.</p>
     </div>
   </section>
 
-  <!-- Values / Philosophy Section -->
-  <section class="values-section" aria-label="Our Values">
+  <MoonDivider />
+
+  <section class="story" aria-label="Our story">
+    <div class="container story-inner">
+      <h2>how it all began</h2>
+      <p>
+        Moonbloom started in 2023, when we set down roots on a stretch of Sonoma Valley land and got to work. What began as a backyard project — a few rows of vegetables, a small flock of chickens — has slowly grown into the roadside stand you'll find on Arnold Drive today.
+      </p>
+      <p>
+        We're still figuring it out, season by season. Some weeks we have more eggs than we know what to do with; some weeks the garden runs wild. We bring what we have to the stand and try to leave it a little better than we found it.
+      </p>
+
+      <blockquote class="pullquote">the land teaches us.</blockquote>
+
+      <h2>our growing philosophy</h2>
+      <p>
+        We grow without synthetic pesticides or herbicides — just compost, cover crops, and a willingness to let the seasons set the pace. The chickens get the run of the place. The garden gets time.
+      </p>
+      <p>
+        What ends up at the stand is whatever the land decided to give us that week. We think it tastes better that way.
+      </p>
+    </div>
+  </section>
+
+  <section class="values" aria-label="Our values">
     <div class="container">
-      <p class="values-eyebrow">A few things we believe</p>
+      <h2>a few things we believe</h2>
       <div class="values-grid">
         <div class="value-card">
           <span class="value-number" aria-hidden="true">01</span>
-          <h3 class="value-title">Sustainably Grown</h3>
-          <p class="value-description">
-            No synthetic chemicals, no shortcuts. We feed the soil with compost and cover crops and let it do its work, season by season.
-          </p>
+          <h3>sustainably grown</h3>
+          <p>No synthetic chemicals, no shortcuts. We feed the soil with compost and cover crops and let it do its work, season by season.</p>
         </div>
-
         <div class="value-card">
           <span class="value-number" aria-hidden="true">02</span>
-          <h3 class="value-title">Locally Rooted</h3>
-          <p class="value-description">
-            Everything we grow stays in the valley. The stand sits at the edge of our driveway in Glen Ellen — close enough that the eggs are usually still warm.
-          </p>
+          <h3>locally rooted</h3>
+          <p>Everything we grow stays in the valley. The stand sits at the edge of our driveway in Glen Ellen — close enough that the eggs are usually still warm.</p>
         </div>
-
         <div class="value-card">
           <span class="value-number" aria-hidden="true">03</span>
-          <h3 class="value-title">Seasonally Inspired</h3>
-          <p class="value-description">
-            We follow the calendar that nature writes. Spring greens, summer tomatoes, fall squash — what is at the stand is whatever the season is offering, and we wouldn't have it any other way.
-          </p>
+          <h3>seasonally inspired</h3>
+          <p>We follow the calendar that nature writes. Spring greens, summer tomatoes, fall squash — what is at the stand is whatever the season is offering, and we wouldn't have it any other way.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Meet the Farmers Section -->
-  <section class="farmer-section" aria-label="Meet the Farmers">
-    <div class="container">
-      <div class="farmer-block">
-        <div class="farmer-photo-wrapper">
-          <div class="farmer-photo-placeholder">
-            <img src="/images/about-farmer.svg" alt="Brittney Harvey and John Singleton at Moonbloom Farm" class="farmer-photo-img" loading="lazy" />
-          </div>
-        </div>
-        <div class="farmer-text">
-          <h2 class="farmer-heading">Meet the Farmers</h2>
-          <p class="farmer-name">Brittney Harvey &amp; John Singleton</p>
-          <p class="farmer-bio">
-            Brittney and John traded a busier life for a quieter one in 2023, swapping the city for a few acres in Glen Ellen and a steady rotation of small projects with feathers, leaves, and dirt.
-          </p>
-          <p class="farmer-bio">
-            Moonbloom is a side-of-the-road, side-of-life kind of farm — not their day job, but where real care goes. Stop by the stand on a Friday morning and one of them will probably be there to say hello.
-          </p>
-        </div>
-      </div>
+  <section class="farmers" aria-label="Meet the farmers">
+    <div class="container farmers-inner">
+      <h2>meet the farmers</h2>
+      <p class="farmers-names">Brittney Harvey &amp; John Singleton</p>
+      <p>
+        Brittney and John traded a busier life for a quieter one in 2023, swapping the city for a few acres in Glen Ellen and a steady rotation of small projects with feathers, leaves, and dirt.
+      </p>
+      <p>
+        Moonbloom is a side-of-the-road, side-of-life kind of farm — not their day job, but where real care goes. Stop by the stand on a Friday morning and one of them will probably be there to say hello.
+      </p>
+      <a href="/visit" class="btn">visit the stand →</a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* ─── Story Section ─── */
-  .story-section {
-    padding: var(--space-lg) 0 var(--space-2xl);
+  .about-hero {
+    padding: var(--space-2xl) 0 var(--space-lg);
   }
 
-  /* ─── Story Pull Quote ─── */
-  .story-pullquote {
-    text-align: center;
-    margin: var(--space-2xl) auto;
-    max-width: 22ch;
-    padding: 0 var(--space-md);
-  }
-
-  .story-pullquote-text {
-    margin: 0;
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-variation-settings: 'opsz' 144, 'SOFT' 100;
-    font-weight: 300;
-    font-size: clamp(2.6rem, 7vw, var(--font-size-display));
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    color: var(--color-clay);
-  }
-
-  .story-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-    margin-bottom: var(--space-2xl);
-  }
-
-  .story-block:last-child {
-    margin-bottom: 0;
-  }
-
-  .story-block--reversed {
-    direction: rtl;
-  }
-
-  .story-block--reversed > * {
-    direction: ltr;
-  }
-
-  .story-photo-wrapper {
-    display: flex;
-    justify-content: center;
-  }
-
-  .story-photo-placeholder {
-    width: 100%;
-    max-width: 440px;
-    aspect-ratio: 4 / 5;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 24px rgba(110, 92, 74, 0.10);
-    overflow: hidden;
-  }
-
-  .story-photo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .story-heading {
-    font-family: var(--font-heading);
-    font-variation-settings: 'opsz' 144, 'SOFT' 30;
-    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+  .about-hero-sub {
+    margin-top: var(--space-md);
+    font-size: var(--text-lg);
     font-weight: 500;
-    color: var(--color-ink);
-    margin: 0 0 var(--space-md);
-    letter-spacing: -0.005em;
+    max-width: 44ch;
   }
 
-  .story-description {
-    font-family: var(--font-body);
-    font-size: var(--font-size-lg);
-    line-height: 1.8;
-    color: var(--color-ink-soft);
-    margin: 0 0 var(--space-sm);
+  .story-inner {
+    max-width: 720px;
   }
 
-  .story-description:last-child {
-    margin-bottom: 0;
+  .story h2 {
+    margin-bottom: var(--space-sm);
   }
 
-  /* ─── Values Section ─── */
-  .values-section {
-    background-color: var(--color-paper-deep);
-    padding: var(--space-2xl) 0;
+  .story p {
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-lg);
   }
 
-  .values-eyebrow {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: var(--color-clay);
-    text-align: center;
-    margin: 0 0 var(--space-xl);
+  .story h2 + p,
+  .story p + h2 {
+    margin-top: var(--space-lg);
+  }
+
+  .pullquote {
+    margin: var(--space-xl) 0;
+    font-weight: 900;
+    font-stretch: 125%;
+    text-transform: lowercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-size: var(--text-display);
+    transform: rotate(-2deg);
+  }
+
+  .values {
+    background: var(--butter);
+    padding: var(--space-xl) 0;
+    margin-top: var(--space-xl);
   }
 
   .values-grid {
+    margin-top: var(--space-lg);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-md);
   }
 
   .value-card {
-    text-align: left;
-    padding-top: var(--space-md);
-    border-top: 1px solid rgba(46, 61, 47, 0.18);
+    border-top: 3px solid var(--ink);
+    padding-top: var(--space-sm);
   }
 
   .value-number {
+    font-weight: 900;
+    font-stretch: 125%;
+    font-size: var(--text-xl);
     display: block;
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-variation-settings: 'opsz' 144, 'SOFT' 100;
-    font-weight: 400;
-    font-size: clamp(2.4rem, 4.5vw, 3.2rem);
-    line-height: 1;
-    color: var(--color-brass);
-    margin-bottom: var(--space-sm);
-    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xs);
   }
 
-  .value-title {
-    font-family: var(--font-heading);
-    font-variation-settings: 'opsz' 24, 'SOFT' 30;
-    font-size: var(--font-size-xl);
-    font-weight: 500;
-    color: var(--color-ink);
-    margin: 0 0 var(--space-sm);
-    letter-spacing: -0.005em;
+  .value-card p {
+    margin-top: var(--space-xs);
   }
 
-  .value-description {
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    color: var(--color-ink-soft);
-    margin: 0;
+  .farmers {
+    padding: var(--space-2xl) 0;
   }
 
-  /* ─── Meet the Farmer Section ─── */
-  .farmer-section {
-    padding: var(--space-lg) 0 var(--space-2xl);
-  }
-
-  .farmer-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-  }
-
-  .farmer-photo-wrapper {
+  .farmers-inner {
+    max-width: 720px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
   }
 
-  .farmer-photo-placeholder {
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    box-shadow: 0 4px 24px rgba(110, 92, 74, 0.10);
-    overflow: hidden;
+  .farmers-names {
+    font-weight: 700;
+    font-size: var(--text-lg);
   }
 
-  .farmer-photo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .farmers p {
+    font-size: var(--text-lg);
   }
 
-  .farmer-heading {
-    font-family: var(--font-heading);
-    font-variation-settings: 'opsz' 144, 'SOFT' 30;
-    font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
-    font-weight: 500;
-    color: var(--color-ink);
-    margin: 0 0 var(--space-xs);
-    letter-spacing: -0.005em;
+  .farmers .btn {
+    margin-top: var(--space-sm);
   }
 
-  .farmer-name {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: var(--font-size-xl);
-    font-weight: 400;
-    color: var(--color-clay);
-    margin: 0 0 var(--space-md);
-  }
-
-  .farmer-bio {
-    font-family: var(--font-body);
-    font-size: var(--font-size-lg);
-    line-height: 1.8;
-    color: var(--color-ink-soft);
-    margin: 0 0 var(--space-sm);
-  }
-
-  .farmer-bio:last-child {
-    margin-bottom: 0;
-  }
-
-  /* ─── Responsive: Tablet ─── */
   @media (max-width: 768px) {
-    .story-block,
-    .story-block--reversed {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-      text-align: center;
-      direction: ltr;
-    }
-
-    .story-photo-placeholder {
-      max-width: 320px;
-    }
-
     .values-grid {
       grid-template-columns: 1fr;
-      gap: var(--space-xl);
-    }
-
-    .farmer-block {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-      text-align: center;
-    }
-
-    .farmer-photo-placeholder {
-      max-width: 280px;
-    }
-  }
-
-  /* ─── Responsive: Small Mobile ─── */
-  @media (max-width: 480px) {
-    .story-section,
-    .farmer-section {
-      padding: var(--space-sm) 0 var(--space-xl);
-    }
-
-    .values-section {
-      padding: var(--space-xl) 0;
-    }
-
-    .story-block {
-      margin-bottom: var(--space-xl);
     }
   }
 </style>
