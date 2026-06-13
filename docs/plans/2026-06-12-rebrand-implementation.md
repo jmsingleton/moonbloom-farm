@@ -488,10 +488,11 @@ git commit -m "feat: canonical/OG/JSON-LD meta, sitemap, redirects, Archivo font
 
 **Files:**
 - Modify: `src/components/MoonbloomMark.astro` (full replace)
+- Create: `src/components/StampBadge.astro` (inline badge — see Step 1b)
 - Create: `src/components/MoonDivider.astro`
 - Modify: `src/components/Header.astro` (full replace), `src/components/Footer.astro` (full replace)
 
-**Step 1: Replace `MoonbloomMark.astro`** (same geometry as the standalone SVG, `currentColor`):
+**Step 1: Replace `MoonbloomMark.astro`** — geometry MUST mirror the tuned source of truth `public/logos/moonbloom-mark.svg` (43.5 translate, local userSpaceOnUse mask). If the snippet below ever diverges from that file, copy from the file:
 
 ```astro
 ---
@@ -501,7 +502,7 @@ interface Props {
 }
 
 const { size = 32, class: className } = Astro.props;
-const maskId = `bloom-center-${Math.random().toString(36).slice(2, 8)}`;
+const maskId = `mb-bloom-center-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <svg
@@ -513,14 +514,14 @@ const maskId = `bloom-center-${Math.random().toString(36).slice(2, 8)}`;
   aria-hidden="true"
 >
   <defs>
-    <mask id={maskId}>
-      <rect width="64" height="64" fill="white"></rect>
-      <circle cx="44" cy="40" r="4.5" fill="black"></circle>
+    <mask id={maskId} maskUnits="userSpaceOnUse" x="-24" y="-24" width="48" height="48">
+      <rect x="-24" y="-24" width="48" height="48" fill="white"></rect>
+      <circle cx="0" cy="0" r="4.5" fill="black"></circle>
     </mask>
   </defs>
   <path d="M26 4 A 26 26 0 1 0 26 56 A 33 33 0 0 1 26 4 Z"></path>
-  <g mask={`url(#${maskId})`}>
-    <g transform="translate(44 40)">
+  <g transform="translate(43.5 40)">
+    <g mask={`url(#${maskId})`}>
       <ellipse cx="0" cy="-11" rx="6" ry="10"></ellipse>
       <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(72)"></ellipse>
       <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(144)"></ellipse>
@@ -530,6 +531,34 @@ const maskId = `bloom-center-${Math.random().toString(36).slice(2, 8)}`;
   </g>
 </svg>
 ```
+
+**Step 1b: Create `StampBadge.astro`** — the homepage badge must be INLINE SVG, not `<img src=".../moonbloom-badge.svg">`: SVG loaded as an image runs in an isolated context that cannot use webfonts, so its Archivo ring text would silently render in a fallback font. Copy the SVG markup verbatim from `public/logos/moonbloom-badge.svg` (the tuned source of truth, with `mb-`-prefixed ids) into a component:
+
+```astro
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 230, class: className } = Astro.props;
+---
+
+<!-- paste children of the badge SVG root here, unchanged -->
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 240 240"
+  fill="#14342B"
+  class={className}
+  role="img"
+  aria-label="moonbloom farm — glen ellen, ca"
+>
+  ...verbatim from public/logos/moonbloom-badge.svg...
+</svg>
+```
+
+Use at most once per page (its internal ids are static).
 
 **Step 2: Create `MoonDivider.astro`** — ● ◐ ○ ◑ ● in pure SVG:
 
@@ -924,6 +953,7 @@ git commit -m "feat: stamped-minimal header, footer, mark, moon divider"
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MoonDivider from '../components/MoonDivider.astro';
+import StampBadge from '../components/StampBadge.astro';
 
 const stand = [
   { name: 'eggs', description: 'Pasture-raised, when the girls are laying.', icon: 'egg' },
@@ -948,7 +978,7 @@ const stand = [
         </div>
       </div>
       <div class="hero-badge">
-        <img src="/logos/moonbloom-badge.svg" alt="moonbloom farm — glen ellen, ca" width="230" height="230" />
+        <StampBadge size={230} />
       </div>
     </div>
   </section>
@@ -1042,7 +1072,7 @@ const stand = [
     flex-wrap: wrap;
   }
 
-  .hero-badge img {
+  .hero-badge {
     transform: rotate(-3deg);
   }
 
@@ -1166,7 +1196,7 @@ const stand = [
       order: -1;
     }
 
-    .hero-badge img {
+    .hero-badge :global(svg) {
       width: 150px;
       height: 150px;
     }
