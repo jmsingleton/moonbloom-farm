@@ -1035,8 +1035,8 @@ const stand = [
           <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
         </p>
         <div class="signup-fields">
-          <input type="text" name="name" placeholder="First name" required aria-label="First name" class="signup-input" />
-          <input type="email" name="email" placeholder="Email address" required aria-label="Email address" class="signup-input" />
+          <input type="text" name="name" placeholder="First name" required aria-label="First name" class="input signup-input" />
+          <input type="email" name="email" placeholder="Email address" required aria-label="Email address" class="input signup-input" />
           <button type="submit" class="btn">sign up</button>
         </div>
       </form>
@@ -1159,24 +1159,11 @@ const stand = [
 
   .signup-input {
     flex: 1 1 180px;
-    padding: 0.85rem 1rem;
-    border: 2px solid var(--ink);
-    background: var(--paper);
-    color: var(--ink);
+    min-width: 0;
+    /* visual styling comes from the global .input utility */
   }
 
-  .signup-input::placeholder {
-    color: var(--ink);
-    opacity: 0.55;
-  }
-
-  .honeypot {
-    position: absolute;
-    left: -9999px;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-  }
+  /* .honeypot styling is provided by global.css */
 
   .signup-form {
     position: relative;
@@ -1297,8 +1284,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
         </p>
         <div class="signup-fields">
-          <input type="text" name="first-name" placeholder="First name" required aria-label="First name" class="signup-input" />
-          <input type="email" name="email" placeholder="Email address" required aria-label="Email address" class="signup-input" />
+          <input type="text" name="first-name" placeholder="First name" required aria-label="First name" class="input signup-input" />
+          <input type="email" name="email" placeholder="Email address" required aria-label="Email address" class="input signup-input" />
           <button type="submit" class="btn">sign up</button>
         </div>
       </form>
@@ -1386,24 +1373,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .signup-input {
     flex: 1 1 180px;
-    padding: 0.85rem 1rem;
-    border: 2px solid var(--ink);
-    background: var(--paper);
-    color: var(--ink);
+    min-width: 0;
+    /* visual styling comes from the global .input utility */
   }
 
-  .signup-input::placeholder {
-    color: var(--ink);
-    opacity: 0.55;
-  }
-
-  .honeypot {
-    position: absolute;
-    left: -9999px;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-  }
+  /* .honeypot styling is provided by global.css */
 
   @media (max-width: 820px) {
     .visit-grid {
@@ -1649,7 +1623,8 @@ git commit -m "feat: restyle about page — big type, no placeholder imagery"
 
 **Step 2: In `src/pages/blog/[...slug].astro]`:**
 - Remove `MoonbloomMark` import and the entire `post-hero-image` placeholder block.
-- Title → `` `${entry.data.title} — moonbloom farm` ``.
+- Title → `` `${entry.data.title.toLowerCase()} — moonbloom farm` `` (the `<title>`/tab only — CSS can't reach it and the voice rule says lowercase tabs; the on-page `<h1>` keeps true source casing and is lowercased visually by CSS).
+- Prose styles must also normalize `h4`–`h6` (markdown posts may use them): same display voice, sizes stepping down from `--text-lg`.
 - Prose styles: re-token (links `border-bottom: 2px solid var(--ink)`; blockquote `border-left: 4px solid var(--ink); background: var(--butter); font-style: normal; font-weight: 700;`); post-nav cards: `border: 3px solid var(--ink)`, no shadow/transform; `Back to all posts` → `← back to the journal`.
 - Replace all old token references with new tokens.
 
