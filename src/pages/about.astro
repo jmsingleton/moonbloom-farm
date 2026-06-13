@@ -26,7 +26,7 @@ import MoonDivider from '../components/MoonDivider.astro';
         We're still figuring it out, season by season. Some weeks we have more eggs than we know what to do with; some weeks the garden runs wild. We bring what we have to the stand and try to leave it a little better than we found it.
       </p>
 
-      <blockquote class="pullquote">the land teaches us.</blockquote>
+      <blockquote class="pullquote display">the land teaches us.</blockquote>
 
       <h2>our growing philosophy</h2>
       <p>
@@ -43,17 +43,17 @@ import MoonDivider from '../components/MoonDivider.astro';
       <h2>a few things we believe</h2>
       <div class="values-grid">
         <div class="value-card">
-          <span class="value-number" aria-hidden="true">01</span>
+          <span class="value-number display" aria-hidden="true">01</span>
           <h3>sustainably grown</h3>
           <p>No synthetic chemicals, no shortcuts. We feed the soil with compost and cover crops and let it do its work, season by season.</p>
         </div>
         <div class="value-card">
-          <span class="value-number" aria-hidden="true">02</span>
+          <span class="value-number display" aria-hidden="true">02</span>
           <h3>locally rooted</h3>
           <p>Everything we grow stays in the valley. The stand sits at the edge of our driveway in Glen Ellen — close enough that the eggs are usually still warm.</p>
         </div>
         <div class="value-card">
-          <span class="value-number" aria-hidden="true">03</span>
+          <span class="value-number display" aria-hidden="true">03</span>
           <h3>seasonally inspired</h3>
           <p>We follow the calendar that nature writes. Spring greens, summer tomatoes, fall squash — what is at the stand is whatever the season is offering, and we wouldn't have it any other way.</p>
         </div>
@@ -107,12 +107,8 @@ import MoonDivider from '../components/MoonDivider.astro';
   }
 
   .pullquote {
+    /* display voice (weight/stretch/lowercase/tracking/leading) comes from the global .display utility */
     margin: var(--space-xl) 0;
-    font-weight: 900;
-    font-stretch: 125%;
-    text-transform: lowercase;
-    letter-spacing: -0.02em;
-    line-height: 1;
     font-size: var(--text-display);
     transform: rotate(-2deg);
   }
@@ -136,8 +132,7 @@ import MoonDivider from '../components/MoonDivider.astro';
   }
 
   .value-number {
-    font-weight: 900;
-    font-stretch: 125%;
+    /* display voice comes from the global .display utility; size/layout are local */
     font-size: var(--text-xl);
     display: block;
     margin-bottom: var(--space-xs);
