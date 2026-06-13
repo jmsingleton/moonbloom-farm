@@ -26,6 +26,7 @@
   --space-2xl: 6rem;
 
   --max-width: 1100px;
+  color-scheme: light;
 }
 
 body {
@@ -36,7 +37,8 @@ body {
   background-color: var(--paper);
 }
 
-/* display voice: bold, wide, lowercase */
+/* display voice: bold, wide, lowercase.
+   text-transform is presentational only — author source text with true casing. */
 h1, h2, h3,
 .display {
   font-weight: 900;
@@ -44,14 +46,11 @@ h1, h2, h3,
   text-transform: lowercase;
   letter-spacing: -0.02em;
   line-height: 0.98;
-  color: var(--ink);
 }
 
 h1 { font-size: var(--text-display); }
 h2 { font-size: var(--text-display-sm); }
 h3 { font-size: var(--text-xl); }
-
-a { color: var(--ink); }
 
 ::selection {
   background: var(--ink);
@@ -61,6 +60,7 @@ a { color: var(--ink); }
 :focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--paper); /* fills the offset gap so the ring stays visible on ink grounds */
 }
 
 .container {
@@ -90,6 +90,21 @@ a { color: var(--ink); }
   color: var(--ink);
 }
 
+/* the one input */
+.input {
+  appearance: none;
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.input::placeholder {
+  color: var(--ink);
+  opacity: 0.55;
+}
+
 /* quiet inline link */
 .link {
   font-weight: 700;
@@ -114,6 +129,13 @@ a { color: var(--ink); }
   transform: rotate(-2deg);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .btn { transition: none; }
+/* netlify honeypot field — visually removed, kept in DOM for bots */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
