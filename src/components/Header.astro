@@ -2,30 +2,24 @@
 import MoonbloomMark from './MoonbloomMark.astro';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/what-we-sell', label: 'What We Sell' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/blog', label: 'Journal' },
-  { href: '/contact', label: 'Visit' },
+  { href: '/about', label: 'about' },
+  { href: '/blog', label: 'journal' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="site-header" id="site-header">
-  <div class="header-inner">
-    <a href="/" class="logo" aria-label="Moonbloom Farm home">
-      <img src="/logos/moonbloom-horizontal.svg" alt="Moonbloom Farm" class="logo-img" />
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="brand" aria-label="moonbloom farm home">
+      <MoonbloomMark size={30} />
+      <span class="brand-name display">moonbloom farm</span>
     </a>
 
     <nav class="desktop-nav" aria-label="Main navigation">
       <ul class="nav-list">
         {navLinks.map((link) => {
-          const isActive =
-            link.href === '/'
-              ? currentPath === '/'
-              : currentPath.startsWith(link.href);
+          const isActive = currentPath.startsWith(link.href);
           return (
             <li>
               <a
@@ -38,6 +32,9 @@ const currentPath = Astro.url.pathname;
             </li>
           );
         })}
+        <li>
+          <a href="/visit" class="btn">visit the stand →</a>
+        </li>
       </ul>
     </nav>
 
@@ -51,34 +48,18 @@ const currentPath = Astro.url.pathname;
     >
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
     </button>
   </div>
 </header>
 
 <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-  <span class="mobile-nav-mark" aria-hidden="true">
-    <MoonbloomMark size={48} />
-  </span>
   <nav aria-label="Mobile navigation">
     <ul class="mobile-nav-list">
-      {navLinks.map((link) => {
-        const isActive =
-          link.href === '/'
-            ? currentPath === '/'
-            : currentPath.startsWith(link.href);
-        return (
-          <li>
-            <a
-              href={link.href}
-              class:list={['mobile-nav-link', { active: isActive }]}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
-        );
-      })}
+      <li><a href="/" class="mobile-nav-link display">home</a></li>
+      {navLinks.map((link) => (
+        <li><a href={link.href} class="mobile-nav-link display">{link.label}</a></li>
+      ))}
+      <li class="mobile-nav-cta"><a href="/visit" class="btn">visit the stand →</a></li>
     </ul>
   </nav>
 </div>
@@ -88,198 +69,131 @@ const currentPath = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(29, 25, 22, 0.14);
-    transition: box-shadow var(--transition), border-color var(--transition);
-  }
-
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: rgba(243, 237, 225, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .site-header.scrolled {
-    border-bottom-color: rgba(29, 25, 22, 0.22);
-    box-shadow: 0 8px 24px rgba(35, 30, 26, 0.08);
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0.95rem var(--space-md);
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
   }
 
-  .logo {
+  .brand {
     display: inline-flex;
     align-items: center;
-    text-decoration: none;
+    gap: 0.6rem;
+    color: var(--ink);
   }
 
-  .logo-img {
-    height: clamp(2.1rem, 3.6vw, 2.75rem);
-    width: auto;
+  .brand-name {
+    font-size: 1.25rem;
   }
 
   .nav-list {
     display: flex;
     align-items: center;
-    gap: 1.4rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: var(--space-md);
   }
 
   .nav-link {
-    font-size: 0.74rem;
-    font-weight: 600;
-    color: var(--color-ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    padding: 0.35rem 0.05rem;
-    position: relative;
-    transition: color var(--transition);
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -0.45rem;
-    height: 1px;
-    width: 0;
-    background-color: var(--color-moss);
-    transition: width var(--transition);
+    font-weight: 700;
+    text-transform: lowercase;
+    padding-bottom: 0.15em;
+    border-bottom: 3px solid transparent;
   }
 
   .nav-link:hover,
   .nav-link.active {
-    color: var(--color-ink);
-  }
-
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
+    border-bottom-color: var(--ink);
   }
 
   .hamburger {
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
-    width: 42px;
-    height: 42px;
-    padding: 8px;
+    gap: 7px;
+    width: 44px;
+    height: 44px;
+    padding: 9px;
     background: transparent;
-    border: 1px solid rgba(29, 25, 22, 0.2);
+    border: 2px solid var(--ink);
     cursor: pointer;
     z-index: 110;
-    position: relative;
   }
 
   .hamburger-line {
     display: block;
     width: 100%;
-    height: 2px;
-    background-color: var(--color-ink);
-    transition: transform var(--transition), opacity var(--transition);
+    height: 3px;
+    background: var(--ink);
+    transition: transform 150ms ease;
   }
 
   .hamburger.open .hamburger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
   }
 
   .hamburger.open .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.open .hamburger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
   }
 
   .mobile-nav {
     position: fixed;
     inset: 0;
-    background:
-      linear-gradient(130deg, rgba(25, 35, 26, 0.96), rgba(55, 44, 36, 0.96)),
-      radial-gradient(circle at 20% 20%, rgba(185, 148, 79, 0.25), transparent 42%);
+    background: var(--paper);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-xl);
     z-index: 105;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-14px);
-    transition: opacity 300ms ease, transform 300ms ease, visibility 300ms ease;
-  }
-
-  .mobile-nav-mark {
-    color: var(--color-brass-soft);
-    opacity: 0.85;
+    transition: opacity 200ms ease, visibility 200ms ease;
   }
 
   .mobile-nav.open {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
   }
 
   .mobile-nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--space-md);
+    text-align: center;
   }
 
   .mobile-nav-link {
-    font-family: var(--font-heading);
-    font-size: clamp(1.7rem, 8vw, 2.3rem);
-    color: var(--color-paper);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    transition: color var(--transition);
+    font-size: clamp(2rem, 9vw, 2.8rem);
   }
 
-  .mobile-nav-link:hover,
-  .mobile-nav-link.active {
-    color: var(--color-brass-soft);
+  .mobile-nav-link:hover {
+    background: var(--ink);
+    color: var(--paper);
   }
 
-  @media (max-width: 860px) {
-    .desktop-nav {
-      display: none;
-    }
+  .mobile-nav-cta {
+    margin-top: var(--space-sm);
+  }
 
-    .hamburger {
-      display: flex;
-    }
+  @media (max-width: 760px) {
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-nav, .hamburger-line { transition: none; }
   }
 </style>
 
 <script>
-  const header = document.getElementById('site-header');
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileNav = document.getElementById('mobile-nav');
 
-  if (header && hamburgerBtn && mobileNav) {
-    const onScroll = () => {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
+  if (hamburgerBtn && mobileNav) {
     const openMenu = () => {
       hamburgerBtn.classList.add('open');
       mobileNav.classList.add('open');
@@ -299,14 +213,10 @@ const currentPath = Astro.url.pathname;
     };
 
     hamburgerBtn.addEventListener('click', () => {
-      if (hamburgerBtn.classList.contains('open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      hamburgerBtn.classList.contains('open') ? closeMenu() : openMenu();
     });
 
-    mobileNav.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    mobileNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', closeMenu);
     });
 

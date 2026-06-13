@@ -5,307 +5,85 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="footer-inner">
+  <div class="footer-inner container">
     <div class="footer-brand">
-      <span class="footer-mark" aria-hidden="true">
-        <MoonbloomMark size={36} />
-      </span>
-      <p class="footer-kicker">Moonbloom Farm</p>
-      <h2 class="footer-title">Rooted in seasonality, grown for real life.</h2>
+      <MoonbloomMark size={44} />
+      <p class="footer-wordmark display">moonbloom farm</p>
+      <p class="footer-line">grown with love in the valley of the moon.</p>
     </div>
 
-    <div class="footer-columns">
-      <section class="footer-col">
-        <h3 class="footer-heading">Visit</h3>
-        <address class="footer-address">
-          <p>13700 Arnold Drive</p>
-          <p>Glen Ellen, CA 95442</p>
-        </address>
-        <p class="footer-hours">Friday – Sunday</p>
-        <p class="footer-hours-note">~8am – noon, when we can</p>
-        <a href="/contact" class="footer-link">Plan your visit</a>
-      </section>
+    <ul class="footer-links">
+      <li>
+        <a href="https://www.instagram.com/moonbloomfarm" target="_blank" rel="noopener noreferrer" class="footer-link">
+          instagram
+        </a>
+      </li>
+      <li>
+        <a href="mailto:hello@moonbloom.farm" class="footer-link">hello@moonbloom.farm</a>
+      </li>
+      <li>
+        <a href="/visit" class="footer-link">visit the stand</a>
+      </li>
+    </ul>
 
-      <section class="footer-col">
-        <h3 class="footer-heading">Newsletter</h3>
-        <p class="footer-copy">Field notes and farm stand updates, when there is something to share.</p>
-        <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form">
-          <input type="hidden" name="form-name" value="newsletter" />
-          <p class="honeypot" aria-hidden="true">
-            <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-          </p>
-          <div class="form-fields">
-            <input type="text" name="name" placeholder="First name" required aria-label="First name" class="form-input" />
-            <input type="email" name="email" placeholder="Email address" required aria-label="Email address" class="form-input" />
-            <button type="submit" class="form-button">Subscribe</button>
-          </div>
-        </form>
-      </section>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="footer-copyright">&copy; {currentYear} Moonbloom Farm</p>
-      <ul class="footer-meta">
-        <li>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
-            Instagram
-          </a>
-        </li>
-        <li>
-          <a href="mailto:hello@moonbloom.farm">hello@moonbloom.farm</a>
-        </li>
-      </ul>
-    </div>
+    <p class="footer-copyright">© {currentYear} moonbloom farm · glen ellen, california</p>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background-color: #1c2421;
-    color: var(--color-paper);
-    border-top: 1px solid rgba(243, 237, 225, 0.08);
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
   }
 
   .footer-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: var(--space-2xl) var(--space-md) var(--space-lg);
-  }
-
-  /* ─── Brand block ─── */
-  .footer-brand {
-    text-align: center;
-    margin-bottom: var(--space-xl);
+    padding-top: var(--space-xl);
     padding-bottom: var(--space-lg);
-    border-bottom: 1px solid rgba(243, 237, 225, 0.12);
-  }
-
-  .footer-mark {
-    display: inline-flex;
-    color: var(--color-brass-soft);
-    margin-bottom: var(--space-sm);
-    opacity: 0.85;
-  }
-
-  .footer-kicker {
-    margin: 0 0 var(--space-xs);
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.24em;
-    color: rgba(243, 237, 225, 0.62);
-    font-weight: 600;
-  }
-
-  .footer-title {
-    margin: 0 auto;
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-variation-settings: 'opsz' 144, 'SOFT' 50;
-    font-weight: 400;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    line-height: 1.25;
-    max-width: 22ch;
-    color: var(--color-paper);
-  }
-
-  /* ─── Two columns ─── */
-  .footer-columns {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: var(--space-2xl);
-    align-items: start;
-  }
-
-  .footer-col {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    align-items: center;
+    gap: var(--space-md);
   }
 
-  .footer-heading {
-    margin: 0 0 var(--space-xs);
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: var(--color-brass-soft);
+  /* reset.css makes svg display:block — center the mark within the brand block */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .footer-address {
-    margin: 0;
-    font-style: normal;
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    color: var(--color-paper);
+  .footer-wordmark {
+    font-size: var(--text-xl);
+    margin-top: var(--space-xs);
   }
 
-  .footer-address p {
-    margin: 0;
+  .footer-line {
+    font-weight: 500;
   }
 
-  .footer-hours {
-    margin: var(--space-xs) 0 0;
-    font-size: var(--font-size-base);
-    color: var(--color-paper);
-  }
-
-  .footer-hours-note {
-    margin: 0;
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: var(--font-size-base);
-    color: rgba(243, 237, 225, 0.7);
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
   }
 
   .footer-link {
-    margin-top: var(--space-sm);
-    align-self: flex-start;
-    font-family: var(--font-body);
-    font-size: 0.72rem;
+    color: var(--paper);
     font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-brass-soft);
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 0.2em;
-    transition: color var(--transition);
+    text-transform: lowercase;
+    border-bottom: 2px solid var(--paper);
+    padding-bottom: 0.1em;
   }
 
   .footer-link:hover {
-    color: var(--color-paper);
-  }
-
-  .footer-copy {
-    margin: 0 0 var(--space-sm);
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: rgba(243, 237, 225, 0.78);
-    max-width: 32ch;
-  }
-
-  /* ─── Newsletter form ─── */
-  .newsletter-form {
-    position: relative;
-  }
-
-  .honeypot {
-    position: absolute;
-    left: -9999px;
-    overflow: hidden;
-    height: 0;
-    width: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  .form-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 0.72rem 0.9rem;
-    font-family: var(--font-body);
-    font-size: 0.92rem;
-    color: var(--color-paper);
-    background-color: rgba(243, 237, 225, 0.06);
-    border: 1px solid rgba(243, 237, 225, 0.22);
-    border-radius: 0;
-    outline: none;
-    transition: border-color var(--transition), background-color var(--transition);
-  }
-
-  .form-input::placeholder {
-    color: rgba(243, 237, 225, 0.5);
-  }
-
-  .form-input:focus {
-    border-color: var(--color-brass);
-    background-color: rgba(243, 237, 225, 0.1);
-  }
-
-  .form-button {
-    width: 100%;
-    padding: 0.78rem 1rem;
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #1f1a16;
-    background-color: var(--color-brass);
-    border: 1px solid var(--color-brass);
-    cursor: pointer;
-    transition: background-color var(--transition), transform var(--transition);
-  }
-
-  .form-button:hover {
-    background-color: var(--color-brass-soft);
-    transform: translateY(-1px);
-  }
-
-  /* ─── Bottom strip ─── */
-  .footer-bottom {
-    margin-top: var(--space-xl);
-    padding-top: var(--space-md);
-    border-top: 1px solid rgba(243, 237, 225, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-md);
-    flex-wrap: wrap;
+    background: var(--paper);
+    color: var(--ink);
   }
 
   .footer-copyright {
-    margin: 0;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: rgba(243, 237, 225, 0.52);
-  }
-
-  .footer-meta {
-    display: flex;
-    gap: var(--space-md);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .footer-meta a {
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: rgba(243, 237, 225, 0.62);
-    transition: color var(--transition);
-  }
-
-  .footer-meta a:hover {
-    color: var(--color-brass-soft);
-  }
-
-  /* ─── Responsive ─── */
-  @media (max-width: 760px) {
-    .footer-inner {
-      padding: var(--space-xl) var(--space-md) var(--space-lg);
-    }
-
-    .footer-columns {
-      grid-template-columns: 1fr;
-      gap: var(--space-xl);
-    }
-
-    .footer-bottom {
-      justify-content: center;
-      text-align: center;
-    }
-
-    .footer-meta {
-      justify-content: center;
-    }
+    font-size: var(--text-sm);
+    opacity: 0.8;
   }
 </style>
