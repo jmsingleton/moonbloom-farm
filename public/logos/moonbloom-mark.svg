@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#14342B">
   <defs>
-    <mask id="bloom-center" maskUnits="userSpaceOnUse" x="-24" y="-24" width="48" height="48">
+    <mask id="mb-bloom-center" maskUnits="userSpaceOnUse" x="-24" y="-24" width="48" height="48">
       <rect x="-24" y="-24" width="48" height="48" fill="white"/>
       <circle cx="0" cy="0" r="4.5" fill="black"/>
     </mask>
@@ -9,7 +9,7 @@
   <path d="M26 4 A 26 26 0 1 0 26 56 A 33 33 0 0 1 26 4 Z"/>
   <!-- five-petal bloom nested in the crescent's curve; mask punches the center hole -->
   <g transform="translate(43.5 40)">
-    <g mask="url(#bloom-center)">
+    <g mask="url(#mb-bloom-center)">
       <ellipse cx="0" cy="-11" rx="6" ry="10"/>
       <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(72)"/>
       <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(144)"/>

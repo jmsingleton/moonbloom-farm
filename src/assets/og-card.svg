@@ -11,6 +11,7 @@
       <circle cx="0" cy="0" r="4.5" fill="#F4E9C8"/>
     </g>
   </g>
+  <!-- instanced TTF exposes family "Archivo Expanded Black"/"Archivo Expanded", NOT "Archivo"; simplifying this chain to "Archivo" silently renders Bold-width -->
   <text x="600" y="390" text-anchor="middle" font-family="Archivo Expanded Black, Archivo Expanded, Archivo" font-weight="900" font-size="96" fill="#14342B">moonbloom farm</text>
   <text x="600" y="470" text-anchor="middle" font-family="Archivo" font-weight="700" font-size="34" letter-spacing="2" fill="#14342B">fresh eggs &amp; garden produce — glen ellen, ca</text>
 </svg>
