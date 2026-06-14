@@ -1,0 +1,37 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 32, class: className } = Astro.props;
+const maskId = `mb-bloom-center-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  fill="currentColor"
+  class={className}
+  aria-hidden="true"
+>
+  <defs>
+    <mask id={maskId} maskUnits="userSpaceOnUse" x="-24" y="-24" width="48" height="48">
+      <rect x="-24" y="-24" width="48" height="48" fill="white"></rect>
+      <circle cx="0" cy="0" r="4.5" fill="black"></circle>
+    </mask>
+  </defs>
+  <!-- crescent moon, opening right -->
+  <path d="M26 4 A 26 26 0 1 0 26 56 A 33 33 0 0 1 26 4 Z"></path>
+  <!-- five-petal bloom nested in the crescent's curve; mask punches the center hole -->
+  <g transform="translate(43.5 40)">
+    <g mask={`url(#${maskId})`}>
+      <ellipse cx="0" cy="-11" rx="6" ry="10"></ellipse>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(72)"></ellipse>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(144)"></ellipse>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(216)"></ellipse>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(288)"></ellipse>
+    </g>
+  </g>
+</svg>

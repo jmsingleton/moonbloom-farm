@@ -1,14 +1,21 @@
 {
-  "name": "moonbloom-farm-website",
+  "name": "moonbloom-farms-website",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "assets": "node scripts/gen-assets.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "netlify-cli": "^23.15.1",
+    "png-to-ico": "^3.0.1"
   }
 }

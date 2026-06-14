@@ -1,0 +1,56 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 230, class: className } = Astro.props;
+---
+
+{/* Inline (not <img>) so the curved Archivo ring text uses the page webfont.
+    Internal ids are static — use at most once per page. */}
+<!-- Geometry duplicated from public/logos/moonbloom-badge.svg — KEEP IN SYNC. The .svg feeds the print-stamp raster (Task 12); this inline copy lets the Archivo ring text use the page webfont. -->
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 240 240"
+  fill="#14342B"
+  class={className}
+  role="img"
+  aria-label="moonbloom farm — glen ellen, ca"
+>
+  <defs>
+    <path id="mb-arc-top" d="M 49 161 A 82 82 0 1 1 191 161"></path>
+    <path id="mb-arc-bottom" d="M 24 120 A 96 96 0 0 0 216 120"></path>
+    <mask id="mb-badge-bloom-center" maskUnits="userSpaceOnUse" x="-24" y="-24" width="48" height="48">
+      <rect x="-24" y="-24" width="48" height="48" fill="white"></rect>
+      <circle cx="0" cy="0" r="4.5" fill="black"></circle>
+    </mask>
+  </defs>
+  <!-- outer stamp ring -->
+  <circle cx="120" cy="120" r="112" fill="none" stroke="#14342B" stroke-width="9"></circle>
+  <!-- curved lettering -->
+  <text font-family="Archivo" font-weight="700" font-size="22" letter-spacing="3">
+    <textPath href="#mb-arc-top" startOffset="50%" text-anchor="middle">moonbloom farm</textPath>
+  </text>
+  <text font-family="Archivo" font-weight="700" font-size="19" letter-spacing="5">
+    <textPath href="#mb-arc-bottom" startOffset="50%" text-anchor="middle">glen ellen, ca</textPath>
+  </text>
+  <!-- side dots at 3 and 9 o'clock -->
+  <circle cx="26" cy="120" r="5"></circle>
+  <circle cx="214" cy="120" r="5"></circle>
+  <!-- crescent-bloom mark, centered -->
+  <!-- moonbloom-mark.svg geometry at 1.5x; translate(72.3 73.7) centers the mark's true bbox (x 0–63.7, y 4–57.7), not the viewBox -->
+  <g transform="translate(72.3 73.7) scale(1.5)">
+    <path d="M26 4 A 26 26 0 1 0 26 56 A 33 33 0 0 1 26 4 Z"></path>
+    <g transform="translate(43.5 40)">
+      <g mask="url(#mb-badge-bloom-center)">
+        <ellipse cx="0" cy="-11" rx="6" ry="10"></ellipse>
+        <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(72)"></ellipse>
+        <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(144)"></ellipse>
+        <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(216)"></ellipse>
+        <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(288)"></ellipse>
+      </g>
+    </g>
+  </g>
+</svg>

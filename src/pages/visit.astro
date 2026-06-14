@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="visit the stand — moonbloom farm"
+  description="Visit the Moonbloom Farm stand in Glen Ellen, CA. Find seasonal hours, directions, and sign up for updates."
+>
+  <section class="visit-hero">
+    <div class="container">
+      <h1>come say hi.</h1>
+      <p class="visit-hero-sub">The stand sits at the edge of our driveway. Stop by, see what's out, say hello to the chickens.</p>
+    </div>
+  </section>
+
+  <section class="visit-details" aria-label="Address, hours, and map">
+    <div class="container visit-grid">
+      <div class="visit-info">
+        <span class="stamp">open fri–sun · 8ish–noon</span>
+
+        <address class="visit-address">
+          13700 Arnold Drive<br />
+          Glen Ellen, CA 95442
+        </address>
+
+        <p class="visit-note">Hours are honest, not precise — when we can, while it lasts.</p>
+
+        <a
+          href="https://maps.google.com/?q=13700+Arnold+Drive,+Glen+Ellen,+CA+95442"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+        >get directions →</a>
+
+        <ul class="visit-links">
+          <li><a href="mailto:hello@moonbloom.farm" class="link">hello@moonbloom.farm</a></li>
+          <li><a href="https://www.instagram.com/moonbloomfarm" target="_blank" rel="noopener noreferrer" class="link">@moonbloomfarm</a></li>
+        </ul>
+      </div>
+
+      <div class="visit-map">
+        <iframe
+          title="Moonbloom Farm location in Glen Ellen, CA"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12516.0!2d-122.526!3d38.371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085ab8e0d6a1e23%3A0x8a6f20006e53e2a!2sGlen%20Ellen%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000"
+          width="100%"
+          height="420"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="signup" aria-label="Email signup">
+    <div class="container signup-inner">
+      <h2>field notes, occasionally.</h2>
+      <p class="signup-sub">Farm stand updates when there is something to share.</p>
+      <form name="contact-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="signup-form">
+        <input type="hidden" name="form-name" value="contact-signup" />
+        <p class="honeypot" aria-hidden="true">
+          <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <div class="signup-fields">
+          <input type="text" name="first-name" placeholder="First name" required aria-label="First name" class="input signup-input" />
+          <input type="email" name="email" placeholder="Email address" required aria-label="Email address" class="input signup-input" />
+          <button type="submit" class="btn">sign up</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .visit-hero {
+    padding: var(--space-2xl) 0 var(--space-lg);
+  }
+
+  .visit-hero-sub {
+    margin-top: var(--space-md);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    max-width: 44ch;
+  }
+
+  .visit-details {
+    background: var(--butter);
+    padding: var(--space-xl) 0;
+  }
+
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .visit-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .visit-address {
+    font-style: normal;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .visit-note {
+    max-width: 36ch;
+  }
+
+  .visit-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: flex-start;
+  }
+
+  .visit-map iframe {
+    display: block;
+    border: 3px solid var(--ink);
+  }
+
+  .signup {
+    padding: var(--space-2xl) 0;
+  }
+
+  .signup-inner {
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .signup-sub {
+    margin: var(--space-xs) 0 var(--space-md);
+  }
+
+  .signup-form {
+    position: relative;
+  }
+
+  .signup-fields {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .signup-input {
+    flex: 1 1 180px;
+    min-width: 0;
+    /* visual styling comes from the global .input utility */
+  }
+
+  /* .honeypot styling is provided by global.css */
+
+  @media (max-width: 820px) {
+    .visit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

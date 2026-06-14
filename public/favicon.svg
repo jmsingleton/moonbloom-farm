@@ -1,11 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- Moonbloom Farms favicon — minimal bloom icon -->
-  <!-- Petals in forest green -->
-  <circle cx="16" cy="9" r="5.5" fill="#2C5530" opacity="0.85"/>
-  <circle cx="22.5" cy="13.5" r="5.5" fill="#2C5530" opacity="0.75"/>
-  <circle cx="20.5" cy="21" r="5.5" fill="#2C5530" opacity="0.65"/>
-  <circle cx="11.5" cy="21" r="5.5" fill="#2C5530" opacity="0.65"/>
-  <circle cx="9.5" cy="13.5" r="5.5" fill="#2C5530" opacity="0.75"/>
-  <!-- Center in gold -->
-  <circle cx="16" cy="15.5" r="4" fill="#C9A96E"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#EAF2EC"/>
+  <g transform="translate(6 6) scale(0.82)" fill="#14342B">
+    <path d="M26 4 A 26 26 0 1 0 26 56 A 33 33 0 0 1 26 4 Z"/>
+    <g transform="translate(43.5 40)">
+      <ellipse cx="0" cy="-11" rx="6" ry="10"/>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-11" rx="6" ry="10" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="4.5" fill="#EAF2EC"/>
+    </g>
+  </g>
 </svg>

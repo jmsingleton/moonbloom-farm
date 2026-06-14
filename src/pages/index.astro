@@ -1,18 +1,244 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/HeroSection.astro';
-import AboutPreview from '../components/AboutPreview.astro';
-import GrowPreview from '../components/GrowPreview.astro';
-import GalleryPreview from '../components/GalleryPreview.astro';
-import FarmStandInfo from '../components/FarmStandInfo.astro';
-import BlogPreview from '../components/BlogPreview.astro';
+import MoonDivider from '../components/MoonDivider.astro';
+import StampBadge from '../components/StampBadge.astro';
+
+const stand = [
+  { name: 'eggs', description: 'Pasture-raised, when the girls are laying.', icon: 'egg' },
+  { name: 'produce', description: 'Whatever the garden is offering this week.', icon: 'carrot' },
+  { name: 'baked goods', description: 'From the farmhouse kitchen, when the oven is on.', icon: 'bread' },
+];
 ---
 
-<BaseLayout title="Moonbloom Farm" description="Moonbloom Farm — an organic micro farm in Glen Ellen, CA. Seasonal produce, farm fresh eggs, preserves, hot sauce, and curated goods for Sonoma Valley adventures.">
-  <HeroSection />
-  <AboutPreview />
-  <GrowPreview />
-  <GalleryPreview />
-  <FarmStandInfo />
-  <BlogPreview />
+<BaseLayout
+  title="moonbloom farm — glen ellen, ca"
+  description="Moonbloom Farm — a small family farm and roadside stand in Glen Ellen, California. Eggs from our flock, produce from the garden, and baked goods from the kitchen, Friday through Sunday."
+>
+  <!-- Hero -->
+  <section class="hero" aria-label="moonbloom farm">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1 class="hero-title">fresh eggs &amp;<br />garden produce.</h1>
+        <p class="hero-sub">A small farm stand on Arnold Drive in Glen Ellen. Grown with love in the Valley of the Moon.</p>
+        <div class="hero-actions">
+          <a href="/visit" class="btn">plan your visit →</a>
+          <span class="stamp">open fri–sun · 8ish–noon</span>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <StampBadge size={230} />
+      </div>
+    </div>
+  </section>
+
+  <MoonDivider />
+
+  <!-- At the stand -->
+  <section class="stand" aria-label="At the stand">
+    <div class="container">
+      <h2>at the stand</h2>
+      <p class="stand-sub">Three things, made small, sold honestly.</p>
+      <ul class="stand-grid">
+        {stand.map((item) => (
+          <li class="stand-card">
+            <h3>{item.name}</h3>
+            <p>{item.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Visit band (butter) -->
+  <section class="visit-band" aria-label="Find the stand">
+    <div class="container visit-grid">
+      <div>
+        <h2>find the stand</h2>
+        <address class="visit-address">
+          13700 Arnold Drive<br />
+          Glen Ellen, CA 95442
+        </address>
+      </div>
+      <div class="visit-hours">
+        <p class="visit-hours-row"><strong>friday – sunday</strong> ~8am – noon</p>
+        <p class="visit-hours-note">When we can. The stand knows no schedule but the season's.</p>
+        <a
+          href="https://maps.google.com/?q=13700+Arnold+Drive,+Glen+Ellen,+CA+95442"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+        >get directions →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section class="signup" aria-label="Email signup">
+    <div class="container signup-inner">
+      <h2>field notes, occasionally.</h2>
+      <p class="signup-sub">Farm stand updates when there is something to share.</p>
+      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="signup-form">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <p class="honeypot" aria-hidden="true">
+          <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <div class="signup-fields">
+          <input type="text" name="first-name" placeholder="First name" required aria-label="First name" class="input signup-input" />
+          <input type="email" name="email" placeholder="Email address" required aria-label="Email address" class="input signup-input" />
+          <button type="submit" class="btn">sign up</button>
+        </div>
+      </form>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* ─── Hero ─── */
+  .hero {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .hero-sub {
+    margin-top: var(--space-md);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    max-width: 34ch;
+  }
+
+  .hero-actions {
+    margin-top: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .hero-badge {
+    transform: rotate(-3deg);
+  }
+
+  /* ─── Stand ─── */
+  .stand {
+    padding: var(--space-lg) 0 var(--space-2xl);
+  }
+
+  .stand-sub {
+    margin-top: var(--space-xs);
+    font-size: var(--text-lg);
+    font-weight: 500;
+  }
+
+  .stand-grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .stand-card {
+    border-top: 3px solid var(--ink);
+    padding-top: var(--space-sm);
+  }
+
+  .stand-card p {
+    margin-top: var(--space-xs);
+  }
+
+  /* ─── Visit band ─── */
+  .visit-band {
+    background: var(--butter);
+    padding: var(--space-xl) 0;
+  }
+
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .visit-address {
+    margin-top: var(--space-sm);
+    font-style: normal;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .visit-hours-row {
+    font-size: var(--text-lg);
+  }
+
+  .visit-hours-row strong {
+    text-transform: lowercase;
+  }
+
+  .visit-hours-note {
+    margin: var(--space-xs) 0 var(--space-md);
+  }
+
+  /* ─── Signup ─── */
+  .signup {
+    padding: var(--space-2xl) 0;
+  }
+
+  .signup-inner {
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .signup-sub {
+    margin: var(--space-xs) 0 var(--space-md);
+  }
+
+  .signup-fields {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .signup-input {
+    flex: 1 1 180px;
+    min-width: 0;
+    /* visual styling comes from the global .input utility */
+  }
+
+  /* .honeypot styling is provided by global.css */
+
+  .signup-form {
+    position: relative;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 820px) {
+    .hero {
+      padding: var(--space-xl) 0;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-badge {
+      order: -1;
+    }
+
+    .hero-badge :global(svg) {
+      width: 150px;
+      height: 150px;
+    }
+
+    .stand-grid,
+    .visit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

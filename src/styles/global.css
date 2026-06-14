@@ -1,32 +1,23 @@
 @import './reset.css';
 
 :root {
-  /* Colors */
-  --color-cream: #FAF7F2;
-  --color-cream-dark: #F0EBE3;
-  --color-forest: #2C5530;
-  --color-forest-light: #3A7040;
-  --color-terracotta: #C4785B;
-  --color-terracotta-light: #D4956F;
-  --color-gold: #C9A96E;
-  --color-gold-light: #D9C08E;
-  --color-charcoal: #333330;
-  --color-charcoal-light: #5C5C58;
-  --color-white: #FFFFFF;
+  /* ─── One ink, papers ─── */
+  --ink: #14342B;
+  --paper: #EAF2EC;
+  --butter: #F4E9C8;
+  --lilac: #E6DFF0; /* reserved — not used at launch */
 
-  /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Lato', 'Segoe UI', sans-serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 2.75rem;
-  --font-size-4xl: 3.5rem;
+  /* ─── Type: one family, two voices ─── */
+  --font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
 
-  /* Spacing */
+  --text-sm: 0.92rem;
+  --text-base: 1.05rem;
+  --text-lg: 1.3rem;
+  --text-xl: clamp(1.6rem, 3vw, 2.2rem);
+  --text-display-sm: clamp(2rem, 5vw, 3.4rem);
+  --text-display: clamp(2.6rem, 8.5vw, 6.4rem);
+
+  /* ─── Space ─── */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
@@ -34,36 +25,42 @@
   --space-xl: 4rem;
   --space-2xl: 6rem;
 
-  /* Layout */
-  --max-width: 1200px;
-  --border-radius: 8px;
-
-  /* Transitions */
-  --transition: 200ms ease;
+  --max-width: 1100px;
+  color-scheme: light;
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  line-height: 1.7;
-  color: var(--color-charcoal);
-  background-color: var(--color-cream);
+  font-family: var(--font);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--ink);
+  background-color: var(--paper);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  line-height: 1.2;
-  color: var(--color-charcoal);
+/* display voice: bold, wide, lowercase.
+   text-transform is presentational only — author source text with true casing. */
+h1, h2, h3,
+.display {
+  font-weight: 900;
+  font-stretch: 125%;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
 }
 
-a {
-  color: var(--color-forest);
-  text-decoration: none;
-  transition: color var(--transition);
+h1 { font-size: var(--text-display); }
+h2 { font-size: var(--text-display-sm); }
+h3 { font-size: var(--text-xl); }
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
 }
 
-a:hover {
-  color: var(--color-forest-light);
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--paper); /* fills the offset gap so the ring stays visible on ink grounds */
 }
 
 .container {
@@ -72,12 +69,73 @@ a:hover {
   padding: 0 var(--space-md);
 }
 
-/* Botanical divider */
-.divider {
-  display: flex;
+/* the one button */
+.btn {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin: var(--space-xl) 0;
-  color: var(--color-gold);
-  opacity: 0.6;
+  gap: 0.5em;
+  padding: 0.9rem 1.5rem;
+  font-weight: 700;
+  font-size: var(--text-base);
+  text-transform: lowercase;
+  background: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* the one input */
+.input {
+  appearance: none;
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.input::placeholder {
+  color: var(--ink);
+  opacity: 0.55;
+}
+
+/* quiet inline link */
+.link {
+  font-weight: 700;
+  text-transform: lowercase;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.1em;
+}
+
+.link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* stamped element: bordered, slightly rotated */
+.stamp {
+  display: inline-block;
+  border: 3px solid var(--ink);
+  padding: 0.5rem 0.9rem;
+  font-weight: 900;
+  font-stretch: 125%;
+  text-transform: lowercase;
+  transform: rotate(-2deg);
+}
+
+/* netlify honeypot field — visually removed, kept in DOM for bots */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
