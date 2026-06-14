@@ -45,7 +45,7 @@ On mobile, the full-screen overlay adds a **home** link above the others.
 
 - **Home:** Moonbloom Farm — a small family farm and roadside stand in Glen Ellen, California. Eggs from our flock, produce from the garden, and baked goods from the kitchen, Friday through Sunday.
 - **Visit:** Visit the Moonbloom Farm stand in Glen Ellen, CA. Find seasonal hours, directions, and sign up for updates.
-- **About:** Meet Brittney Harvey and John Singleton, the family behind Moonbloom Farm — a small farm and roadside stand in Glen Ellen, growing eggs and produce in the Sonoma Valley since 2023.
+- **About:** Meet Brittney, John, and Dax, the family behind Moonbloom Farm — a small farm and roadside stand in Glen Ellen, growing eggs and produce in the Sonoma Valley since 2023.
 - **Journal:** Stories from the field — seasonal stories and growing updates from Moonbloom Farm in the Sonoma Valley.
 
 ---
@@ -55,7 +55,7 @@ On mobile, the full-screen overlay adds a **home** link above the others.
 ### Hero
 
 - **Heading (h1):** fresh eggs & garden produce.
-- **Sub:** A small farm stand on Arnold Drive in Glen Ellen. Grown with love in the Valley of the Moon.
+- **Sub:** A small farm stand on Carmel Avenue in Glen Ellen. Grown with love in the Valley of the Moon.
 - (button) plan your visit → *(links to `/visit`)*
 - (stamp) open fri–sun · 8ish–noon
 
@@ -82,7 +82,7 @@ A decorative `● ◐ ○ ◑ ●` separator. No text.
 
 - **Heading (h2):** find the stand
 - **Address:**
-  - 13700 Arnold Drive
+  - 13700 Carmel Ave.
   - Glen Ellen, CA 95442
 - **Hours row:** **friday – sunday** ~8am – noon
 - **Note:** When we can. The stand knows no schedule but the season's.
@@ -110,7 +110,7 @@ A decorative `● ◐ ○ ◑ ●` separator. No text.
 
 - (stamp) open fri–sun · 8ish–noon
 - **Address:**
-  - 13700 Arnold Drive
+  - 13700 Carmel Ave.
   - Glen Ellen, CA 95442
 - **Note:** Hours are honest, not precise — when we can, while it lasts.
 - (button) get directions → *(opens Google Maps)*
@@ -141,7 +141,7 @@ A decorative `● ◐ ○ ◑ ●` separator. No text.
 ### How it all began
 
 - **Heading (h2):** how it all began
-- **Paragraph 1:** Moonbloom started in 2023, when we set down roots on a stretch of Sonoma Valley land and got to work. What began as a backyard project — a few rows of vegetables, a small flock of chickens — has slowly grown into the roadside stand you'll find on Arnold Drive today.
+- **Paragraph 1:** Moonbloom started in 2023, when we set down roots on a stretch of Sonoma Valley land and got to work. What began as a backyard project — a few rows of vegetables, a small flock of chickens — has slowly grown into the roadside stand you'll find on Carmel Avenue today.
 - **Paragraph 2:** We're still figuring it out, season by season. Some weeks we have more eggs than we know what to do with; some weeks the garden runs wild. We bring what we have to the stand and try to leave it a little better than we found it.
 
 ### Pullquote (oversized display line, slightly rotated)
@@ -168,7 +168,7 @@ A decorative `● ◐ ○ ◑ ●` separator. No text.
 ### Meet the farmers
 
 - **Heading (h2):** meet the farmers
-- **Names:** Brittney Harvey & John Singleton
+- **Names:** Brittney, John & Dax
 - **Paragraph 1:** Brittney and John traded a busier life for a quieter one in 2023, swapping the city for a few acres in Glen Ellen and a steady rotation of small projects with feathers, leaves, and dirt.
 - **Paragraph 2:** Moonbloom is a side-of-the-road, side-of-life kind of farm — not their day job, but where real care goes. Stop by the stand on a Friday morning and one of them will probably be there to say hello.
 - (button) visit the stand → *(links to `/visit`)*
@@ -185,7 +185,7 @@ A decorative `● ◐ ○ ◑ ●` separator. No text.
 ### Empty state (currently shown — no posts yet)
 
 - **Message:** Stories will arrive when the season picks up.
-- **Followup:** Until then, come find us at the stand on Arnold Drive — Friday through Sunday, when we can.
+- **Followup:** Until then, come find us at the stand on Carmel Avenue — Friday through Sunday, when we can.
 - (link) plan your visit → *(links to `/visit`)*
 
 ### Post card (shown per post once posts exist)
